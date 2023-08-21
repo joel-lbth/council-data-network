@@ -1,0 +1,7 @@
+- [[Municipal golf courses]]
+- [[Outdoor activity centres]]
+- [[Sports clubs and groups]]
+- [[Sports development]]
+- [[Sports equipment hire]]
+- [[Sports facilities]]
+- [[Swimming pools and water based activities]]
