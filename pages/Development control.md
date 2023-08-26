@@ -22,6 +22,6 @@
 - [[Planning pre-application advice]]
 - [[Planning reserved matters]]
 - [[Prior notification of development]]
-- [[Removal_variation of planning conditions]]
+- [[Removal/variation of planning conditions]]
 - [[Residential planning applications]]
 - [[Self-build and custom build register]]

@@ -1,3 +1,6 @@
+- [[Commercial activities]]
+- [[Democracy]]
+- [[Internal operation]]
 - [[Asylum and immigration]]
 - [[Communications and publicity]]
 - [[Complaints and compliments]]

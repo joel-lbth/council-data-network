@@ -1,4 +1,4 @@
 - [[Free school meals]]
 - [[Nursery education grant]]
-- [[School clothing grants_vouchers]]
+- [[School clothing grants/vouchers]]
 - [[School transport - additional support]]

@@ -1,3 +1,7 @@
 - [[Corporate management]]
 - [[Finance]]
 - [[Human resources]]
+- [[Democratic services]]
+- [[Facilities]]
+- [[Information communication technology]]
+- [[Legal]]

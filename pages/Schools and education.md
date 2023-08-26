@@ -1,2 +1,4 @@
+- [[Educational support]]
+- [[Schools]]
 - [[Adult education and lifelong learning]]
 - [[Higher education]]

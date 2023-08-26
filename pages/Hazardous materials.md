@@ -1,4 +1,4 @@
 - [[Firework safety advice]]
 - [[Petroleum storage licence]]
-- [[Petroleum storage licence_certificate]]
+- [[Petroleum storage licence/certificate]]
 - [[Poisons licence]]

@@ -6,7 +6,7 @@
 - [[Health advice]]
 - [[Health and wellbeing strategy]]
 - [[Health checks]]
-- [[HIV _ AIDS support for adults]]
+- [[HIV / AIDS support for adults]]
 - [[Infectious disease investigation]]
 - [[Midwifery and maternity services]]
 - [[Public health strategic needs assessment]]

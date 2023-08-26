@@ -1,3 +1,4 @@
+- [[Waste management]]
 - [[Animal welfare]]
 - [[Conservation and sustainability]]
 - [[Countryside and farming]]

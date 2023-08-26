@@ -7,7 +7,7 @@
 - [[Children's centres]]
 - [[Family information services]]
 - [[Family support groups and organisations]]
-- [[HIV _ AIDS support for children and young people]]
+- [[HIV / AIDS support for children and young people]]
 - [[Integrated family support]]
 - [[Preventative services for children and young people]]
 - [[Sensory rooms and activities]]
