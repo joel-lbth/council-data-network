@@ -1,1 +1,6 @@
 bak
+.ipynb_checkpoints
+*.gephi
+*.gml
+.recycle
+nbs/*.html
