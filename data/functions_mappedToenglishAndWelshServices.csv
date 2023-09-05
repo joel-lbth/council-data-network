@@ -1,0 +1,1064 @@
+Identifier,Label,Status,Description,Created,Modified,History notes,Type,Parent identifiers,Parent labels,Level 1,Level 2,Mapping type,Mapped identifier,Mapped label,Mapped status,Mapped type,IsLive,IsMappedLive
+42,Administration and Government,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+44,Asylum and immigration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,650,Accommodation certificates,Live,Service,1,1
+44,Asylum and immigration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,77,Asylum seekers and refugee support,Live,Service,1,1
+44,Asylum and immigration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,852,Citizenship ceremonies,Live,Service,1,1
+44,Asylum and immigration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,915,Nationality checking,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,853,Accessibility of Web sites,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1555,Civic events,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1412,Community noticeboards,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,822,Media and publicity protocols,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,359,News and information releases,Live,Service,1,1
+46,Communications and publicity,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,659,Publications,Live,Service,1,1
+47,Complaints and compliments,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,370,Change of circumstances,Live,Service,1,1
+47,Complaints and compliments,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,645,Complaints advocacy,Live,Service,1,1
+47,Complaints and compliments,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,353,Complaints procedure,Live,Service,1,1
+47,Complaints and compliments,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1536,Customer feedback and suggestions,Live,Service,1,1
+47,Complaints and compliments,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,653,Customer satisfaction surveys,Live,Service,1,1
+48,Consultations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,366,Community engagement,Live,Service,1,1
+48,Consultations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1306,Petitions,Live,Service,1,1
+48,Consultations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,867,Service delivery consultation,Live,Service,1,1
+48,Consultations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,658,Spending plans consultation,Live,Service,1,1
+49,Data protection and freedom of information,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,826,Data Protection,Live,Service,1,1
+49,Data protection and freedom of information,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,722,Freedom of Information,Live,Service,1,1
+49,Data protection and freedom of information,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1088,Re-use of public sector information,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,720,Community strategy,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1465,Council  expenditure,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1574,Councillors allowances and expenses,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1702,Members and officers code of conduct,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1577,Open data publication,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,725,Performance measurement and reporting,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1584,Transparency of accounts,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1573,Transparency of senior salaries,Live,Service,1,1
+53,Policy and performance,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1288,Value for money,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,320,Birth certificate amendments,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,319,Birth registration,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,663,Copy certificates,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,321,Death registration,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,335,Funeral records,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,323,Historical record searches,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1716,Marriage or civil partnership registration,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,874,Marriage renewal,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,873,Naming ceremonies,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,876,Notice of marriage or civil partnership,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,322,Stillbirth registration,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,317,Wedding venues,Live,Service,1,1
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,324,Death - historical searches,Discontinued,Service,1,0
+54,Registration,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,698,Marriage - historical searches,Discontinued,Service,1,0
+55,Statistics and census information,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,367,Census information,Live,Service,1,1
+55,Statistics and census information,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,916,Economic information and analysis,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,58,Council tax account enquiries,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,57,Council tax annual notification,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1763,Council tax appeals,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,61,Council tax band reductions,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,59,Council tax discount,Live,Service,1,1
+56,Taxation,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,60,Council tax exemptions,Live,Service,1,1
+57,Volunteering and voluntary organisations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1822,Emergency volunteering certificate,Live,Service,1,1
+57,Volunteering and voluntary organisations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1150,Local Involvement Network (LINk),Live,Service,1,1
+57,Volunteering and voluntary organisations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,1113,Volunteering,Live,Service,1,1
+57,Volunteering and voluntary organisations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,919,Youth leadership training,Live,Service,1,1
+57,Volunteering and voluntary organisations,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,contains,629,Youth project volunteering,Live,Service,1,1
+43,Accessing and updating personal information,Discontinued,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,,,,,,0,0
+45,Commercial activities,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,,,,,,1,0
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,1046,Calibration and testing,Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,883,"Catering, sales and vending",Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,373,"Conference, hall and meeting room hire",Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,821,Estates management,Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,882,Festive decorations,Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,869,MOT testing,Live,Service,1,1
+144,Goods and services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,827,Sale of gifts and publications,Live,Service,1,1
+145,Procurement,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,369,Approved suppliers,Live,Service,1,1
+145,Procurement,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,828,Contracts lists,Live,Service,1,1
+145,Procurement,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,829,Contracts management,Live,Service,1,1
+145,Procurement,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,45,Commercial activities,Administration and Government,Commercial activities,contains,830,Procurement policy,Live,Service,1,1
+50,Democracy,Live,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,,,,,,1,0
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1390,Byelaws and regulations,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1045,Civic recognition and awards,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,719,Community assemblies and committees,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1291,Constitution,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,721,Election results,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1679,Electoral areas,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,365,Electoral nominations,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,364,Electoral register,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,861,Equality and diversity,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1651,Lord Lieutenant,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,354,"Minutes, agendas and reports",Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1013,Postal voting,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,361,Proxy voting,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,724,Referenda,Live,Service,1,1
+146,Democratic services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,362,Voting,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1703,Councillor casual vacancies,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,355,Councillors declaration of interest,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,358,Councillors directory,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,357,Councillors surgeries,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,1701,Mayoral elections,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,360,Mayoral invitations,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,687,Members of Parliament,Live,Service,1,1
+147,Elected members,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,50,Democracy,Administration and Government,Democracy,contains,723,Parish/town council and councillors,Live,Service,1,1
+51,Equality and diversity,Discontinued,,2013-04-03,2013-04-03,,Function,42,Administration and Government,Administration and Government,,,,,,,0,0
+52,Internal operation,Live,,2013-03-04,2013-04-03,Renamed from 'Municipal operation' in March 2016 review,Function,42,Administration and Government,Administration and Government,,,,,,,1,0
+114,Corporate management,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,contains,1413,Civic buildings,Live,Service,1,1
+114,Corporate management,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,contains,1137,Civic liability,Live,Service,1,1
+114,Corporate management,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,contains,662,Town twinning,Live,Service,1,1
+116,Finance,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,contains,726,Benefit fraud,Live,Service,1,1
+119,Human resources,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,contains,863,Vetting of contract and supplier staff,Live,Service,1,1
+115,Democratic services,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,,,,,,1,0
+118,Facilities,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,,,,,,1,0
+120,Information communication technology,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,,,,,,1,0
+117,Legal,Live,,2015-03-17,2015-03-17,,Function,52,Internal operation,Administration and Government,Internal operation,,,,,,1,0
+1,Advice and benefits,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,190,Benefits advice and assessment,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,328,Bereavement support,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,352,Credit unions,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,651,Debt counselling,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,1520,Debt enforcement,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,1818,Food banks,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,671,Funeral expenses payment,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,676,Legal advice,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,189,Welfare rights advice,Live,Service,1,1
+2,Advice and welfare rights,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,contains,688,Witness support,Discontinued,Service,1,0
+3,Benefits,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,,,,,,1,0
+122,Carer and disability benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,137,Disabled facilities grant,Live,Service,1,1
+122,Carer and disability benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1534,Employment and support allowance,Live,Service,1,1
+123,Family benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,4,Free school meals,Live,Service,1,1
+123,Family benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,50,Nursery education grant,Live,Service,1,1
+123,Family benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,2,School clothing grants/vouchers,Live,Service,1,1
+123,Family benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,3,School transport - additional support,Discontinued,Service,1,0
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,143,Decoration and disturbance allowances,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,832,Going into hospital,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,158,Home purchase grants,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,136,Home repair assistance grant,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,72,Housing benefit appeals,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,68,Housing benefit backdated claims,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,70,Housing benefit current claim,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,69,Housing benefit new claim,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,71,Housing benefit overpayments,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,73,Housing benefit renewal,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,142,Overdue housing repairs discretionary allowance,Live,Service,1,1
+124,Heating and housing benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1055,Rent determination,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1835,Exceptional Hardship Payment,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1545,Jobseekers allowance,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1829,Local Council Tax Reduction - appeals,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1830,Local Council Tax Reduction - backdated claims,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1831,Local Council Tax Reduction - current claim,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1832,Local Council Tax Reduction - new claim,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1833,Local Council Tax Reduction - overpayments,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1834,Local Council Tax Reduction - renewal,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1795,Local crisis payment,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1652,Universal credit,Live,Service,1,1
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,65,Council tax benefit appeals,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,62,Council tax benefit backdated claims,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,64,Council tax benefit current claim,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,63,Council tax benefit new claim,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,66,Council tax benefit overpayments,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,67,Council tax benefit renewal,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1360,Starting work benefits,Discontinued,Service,1,0
+125,Low income benefits,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,contains,1826,Test and Trace Support Payment,Discontinued,Service,1,0
+121,Death and benefits,Discontinued,,2016-09-12,2016-09-12,Added in March 2016 review,Function,3,Benefits,Advice and benefits,Benefits,,,,,,0,0
+4,Community support,Discontinued,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,,,,,,0,0
+5,Grants and aid,Live,,2013-04-03,2013-04-03,,Function,1,Advice and benefits,Advice and benefits,,,,,,,1,0
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1402,Community equipment loans,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,755,Community facilities grants,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,871,Community grants,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1159,Cultural grants,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,857,Financial assistance for housing associations,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,615,Grants and support for voluntary organisations,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,639,Sports grants,Live,Service,1,1
+126,Community grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,455,Sporting club grants,Discontinued,Service,1,0
+127,Disabled facilities grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1056,Special provision capital fund,Live,Service,1,1
+128,Grants for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,888,Early years grant,Live,Service,1,1
+128,Grants for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1155,Gifted and talented awards,Live,Service,1,1
+128,Grants for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1116,Youth Opportunity Fund,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1148,Discretionary housing payment,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,858,Home improvement loans,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,433,Home renovation grants,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1147,Local Housing Allowance,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,1154,Private tenants rent assistance,Live,Service,1,1
+129,Housing grants,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,5,Grants and aid,Advice and benefits,Grants and aid,contains,269,Warm homes healthy people,Live,Service,1,1
+6,Business and employment,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,349,Advice to businesses and voluntary organisations,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,914,Business continuity advice,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,351,Business co-operatives,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1036,Business directories,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,692,Business security advice,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1139,Business sponsorship opportunities,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,820,Land and property valuations,Live,Service,1,1
+7,Business advice and support,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,622,Support for tourism businesses,Live,Service,1,1
+8,Business grants,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,690,Business awards,Live,Service,1,1
+8,Business grants,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,350,Business grants,Live,Service,1,1
+8,Business grants,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,693,Business security grants,Live,Service,1,1
+8,Business grants,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,900,Commercial property development,Live,Service,1,1
+8,Business grants,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,496,Shop front improvement grants,Live,Service,1,1
+9,Business rates,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,55,Business rate relief,Live,Service,1,1
+9,Business rates,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1672,Business rate supplement,Live,Service,1,1
+9,Business rates,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,56,Business rates account enquiries,Live,Service,1,1
+9,Business rates,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,54,Business rates annual notification,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,887,Careers advice,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,337,Current vacancies,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,299,Disabled people employment advice,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,343,Employment and training initiatives,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,846,Environmental health placements,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,344,Equal opportunities advice,Live,Service,1,1
+10,Careers and employment,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,638,Sports employment,Live,Service,1,1
+11,Commercial property,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1618,Business centres,Live,Service,1,1
+11,Commercial property,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,93,Commercial lettings,Live,Service,1,1
+11,Commercial property,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,677,Vacant land and property,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,429,Accident reporting,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,811,Construction site fire safety,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,421,Health and safety - prosecutions register,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,419,Health and safety regulation,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,422,Health and safety training,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1673,Safety of disused mines and tips,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,752,Work health and safety advice and training,Live,Service,1,1
+12,Health and safety at work,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,718,Occupational health services,Discontinued,Service,1,0
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1693,Business improvement districts (BID),Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,714,Compulsory property acquisition,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,348,Economic reports and forecasts,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,824,European and other funding,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,754,Land reclamation,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,347,Local economic development,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,823,Regeneration projects,Live,Service,1,1
+13,Regeneration,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,715,Voluntary property acquisition,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1823,Animal health,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,788,Animal inspection,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,796,Explosives licence,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,789,Fair trading,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1053,Feed hygiene registration,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,384,Fireworks sales licence,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,791,Food labelling,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,402,Product safety,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1742,Public weighbridges,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,403,Retail trading standards,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1127,Trader approval schemes,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,401,Trading standards advice to businesses,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1125,Under age sales,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,404,Weights and measures,Live,Service,1,1
+15,Trading standards,Live,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,contains,1110,Trading standards education,Discontinued,Service,1,0
+14,Tenders and contracts,Discontinued,,2013-04-03,2013-04-03,,Function,6,Business and employment,Business and employment,,,,,,,0,0
+95,Coastline management,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+96,Coastline,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,756,Beach patrols,Live,Service,1,1
+96,Coastline,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,760,Coastal events,Live,Service,1,1
+96,Coastline,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,848,Coastal protection,Live,Service,1,1
+97,Inland waterways,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,556,Canals and waterways,Live,Service,1,1
+97,Inland waterways,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,780,Houseboat moorings,Live,Service,1,1
+97,Inland waterways,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,contains,781,Reservoir management,Live,Service,1,1
+98,Ports and harbours,Live,,2013-04-03,2013-04-03,,Function,95,Coastline management,Coastline management,,,,,,,1,0
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,757,Boat and trailer parking,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,758,Boat moorings,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,769,Boat waste disposal,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,771,Boat winter storage,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,759,Cranage,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,779,Lifebelts,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,774,Marine docking beds,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,766,Marine storage lockers,Live,Service,1,1
+168,Port and harbour facilities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,765,Port and harbour facilities,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,772,Animal importation,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,762,Boat launching and recovery,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,763,Boat registration,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,770,Marine weather data,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,1006,Navigation and berthing,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,764,Pilotage,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,773,Port arrival notification,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,775,Port consignment notification,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,847,Rabies protection,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,767,Towing for marine vessels,Live,Service,1,1
+169,Port and harbour operations,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,98,Ports and harbours,Coastline management,Ports and harbours,contains,777,Ports of entry - detention,Discontinued,Service,1,0
+16,Community safety,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,793,Civil emergencies - flooding,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,794,Civil emergencies - gas pipelines,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,792,Civil emergencies - major accident hazards,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,729,Civil emergencies - social and psychological support,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1308,Current emergency situations - civil,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1287,Current emergency situations - health,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1307,Current emergency situations - weather,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,703,Emergency plan,Live,Service,1,1
+18,Emergencies,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1612,Flood prevention,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,800,Arson reduction,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,802,Community fire safety,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1609,Fire and rescue - operational assurance,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1610,Fire and rescue - risk management,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,818,Fire hydrants maintenance,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1604,Firework incident research,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1602,Home fire safety equipment,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,795,Radioactive materials storage and transport,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,817,Specialist rescue services,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1364,Temporary structure fire safety,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1607,Water network extensions,Live,Service,1,1
+19,Fire safety,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,813,Workplace fire regulations,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1603,Arson investigation,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1474,Attending arson incidents,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,801,Attending automatic fire alarms,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,815,Attending fires,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1605,Fire and rescue incident investigation,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,798,Hazardous chemical (HAZCHEM) incidents,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,816,Post-incident support,Live,Service,1,1
+130,Fire attendance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,819,Securing premises after fire,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,804,Fire regulations business enforcement,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,803,Fire regulations residential enforcement,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1608,Fire risk assessment in commercial property,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,812,Fire safety education,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,809,Fire warden/commercial training,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1119,Home fire safety check,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,1606,Private fire hydrants inspection,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,814,Railway fire certificates,Live,Service,1,1
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,805,Fire certificates - factories,Discontinued,Service,1,0
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,808,Fire certificates - hotels/boarding houses,Discontinued,Service,1,0
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,806,Fire certificates - offices,Discontinued,Service,1,0
+131,Fire prevention and certification,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,19,Fire safety,Community safety,Fire safety,contains,807,Fire certificates - shops,Discontinued,Service,1,0
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1600,Alarm notification area,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,657,Alley gating,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1783,Channel early intervention scheme,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1750,Civil injunction,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,870,Community safety,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1044,Community wardens,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1782,Counter terrorism (Prevent),Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1133,Hate crime,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,423,Home safety advice,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1156,Neighbourhood policing,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,164,Protection from harm,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,368,Release of CCTV evidence,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,498,Town centre CCTV,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,497,Town centre crime prevention,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,586,Vandalism prevention,Live,Service,1,1
+21,Neighbourhood security,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,contains,1816,Victim support,Live,Service,1,1
+17,Criminal justice,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,,,,,,1,0
+20,Police services,Live,,2013-04-03,2013-04-03,,Function,16,Community safety,Community safety,,,,,,,1,0
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1483,Anti-social behaviour  - solvent abuse,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1480,Anti-social behaviour - begging and vagrancy,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1481,Anti-social behaviour - hoax or false calls to emergency services,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1484,Anti-social behaviour - inconsiderate or nuisance,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1482,Anti-social behaviour - malicious or nuisance communication,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1485,Anti-social behaviour - neighbour nuisance,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1486,Anti-social behaviour - street drinking,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1487,Anti-social behaviour - vehicle,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1477,Criminal damage - non-domestic building,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1479,Criminal damage - non-specific,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1478,Criminal damage - property,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1475,Criminal damage - vehicle,Live,Service,1,1
+132,Incident response,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,626,Sudden death investigations,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1752,Community protection notice,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1751,Criminal Behaviour Order,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1476,Criminal damage - dwelling,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,607,Demonstrations and parades permission,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1689,Designated public places order,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,97,Housing crime support,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,99,Housing estate safety,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,98,Housing nuisance,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1754,Premises closure notice,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1753,Public Spaces Protection Order,Live,Service,1,1
+133,Public safety,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,20,Police services,Community safety,Police services,contains,1696,Criminal behaviour order,Discontinued,Service,1,0
+30,Environmental protection,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,434,Animal welfare,Live,Service,1,1
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1471,Dangerous dogs enforcement,Live,Service,1,1
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,612,Dog registration,Live,Service,1,1
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,432,Dog wardens,Live,Service,1,1
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1506,Pet burial,Live,Service,1,1
+31,Animal welfare,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,575,Stray animals,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,618,Archaeological consultancy,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,619,Archaeological excavations and surveys,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,745,Countryside conservation,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,596,Ecology and geology,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,495,Environmental policy,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,597,Landscape character assessment,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,862,Local access forums,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1611,Surface water management plans,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1131,Sustainable development,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1613,Sustainable drainage systems,Live,Service,1,1
+32,Conservation and sustainability,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1144,Waste reduction,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,746,Community farms,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,467,Countryside education,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,466,Countryside facilities,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,702,Countryside management,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,749,Countryside rangers,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,470,Countryside surveys,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,469,Countryside visitor centres,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,750,Countryside volunteers,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1052,Farming advice,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,751,Field study centres,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,748,Forest and woodland management,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,464,Grazing land,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1540,Nature reserves,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1118,Open access land,Live,Service,1,1
+33,Countryside and farming,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1724,Smallholdings,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1774,Animal by-products enforcement,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,601,Environmental health emergencies out of hours,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,408,Food poisoning and contamination,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,407,Food safety enforcement,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,406,Food safety inspections,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,431,Pest control,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1011,Scientific services,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1086,Smoking ban,Live,Service,1,1
+34,Environmental health,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1597,Swimming pool and spa pool monitoring,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1538,Cemeteries and crematoria,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,875,Civil funerals,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,332,Exhumations,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,333,Grave purchasing,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,334,Memorial construction,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,325,Mortuaries,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,329,Municipal funerals,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,327,Repatriation of bodies abroad,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,326,Repatriation of bodies to England and Wales,Live,Service,1,1
+35,Funerals and cremations,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,825,Independent funerals,Discontinued,Service,1,0
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,649,Common land and village greens,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,589,Grass cutting,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,655,Gypsy and traveller sites,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,670,Outdoor play facilities,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,709,Parks and open space maintenance and landscaping,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,461,Parks and open spaces,Live,Service,1,1
+36,Parks and open spaces,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,669,Parks and open space landscaping,Discontinued,Service,1,0
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,411,Air handling units,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,413,Air quality,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,415,Asbestos management,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,691,Clean Air Act approval,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,417,Construction site pollution,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,418,Contaminated land,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,879,Environmental information regulations,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1084,Exhaust emission testing,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1085,Idling vehicles,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,899,Light pollution,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,412,Noise pollution,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1051,Private water supply analysis,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,909,Septic tanks and cesspits,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1575,Smoke control areas,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,416,Statutory nuisances,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,660,Water pollution,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,776,Water quality monitoring,Live,Service,1,1
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,595,Geotechnology,Discontinued,Service,1,0
+37,Pollution control,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,414,Hazardous substance control,Discontinued,Service,1,0
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,535,Composters,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1423,Food waste recycling,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,851,Recycling advice and initiatives,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,533,Recycling bags and containers,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1779,Recycling of batteries,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,534,Recycling sites,Live,Service,1,1
+39,Recycling,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1130,Residential recycling collections,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1152,Abandoned shopping trolleys,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,372,Abandoned vehicles,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,576,Dead animal removal,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1094,Dog  waste bins,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,577,Dog fouling,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,588,Flyposting,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,587,Flytipping,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,584,Graffiti removal,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,581,Litter bins,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1138,Litter enforcement,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,580,Litter removal,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,583,Market cleaning,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,579,Public toilets,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,1615,RADAR keys for public toilets,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,591,Road spillages,Live,Service,1,1
+40,Street care and cleaning,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,contains,582,Street cleaning,Live,Service,1,1
+41,Utilites,Discontinued,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,,,,,,0,0
+38,Waste management,Live,,2013-04-03,2013-04-03,,Function,30,Environmental protection,Environmental protection,,,,,,,1,0
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,523,Commercial  clinical waste disposal,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,519,Commercial waste bins,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,517,Commercial waste collection,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,520,Commercial waste disposal sites,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,522,Commercial waste special collections,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,518,Commercial waste spillage,Live,Service,1,1
+140,Commercial waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,689,Skip hire,Live,Service,1,1
+141,Hazardous waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,850,Hazardous waste collection,Live,Service,1,1
+141,Hazardous waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,428,Syringe disposal,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,528,Bulky household waste collections,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,859,Clinical household waste,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,530,Household garden waste,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,1473,Household waste accumulation,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,854,Household waste assisted collection,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,524,Household waste collection,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,526,Household waste containers,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,531,Household waste disposal sites,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,1470,Household waste enforcement,Live,Service,1,1
+142,Household waste,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,1744,Residential waste spillages,Live,Service,1,1
+143,Waste policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,877,Area waste strategy,Live,Service,1,1
+143,Waste policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,38,Waste management,Environmental protection,Waste management,contains,1472,Refuse duty of care enforcement,Live,Service,1,1
+58,Health and social care,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+60,"Care homes, supported and sheltered housing",Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,293,Adult hospice care,Live,Service,1,1
+60,"Care homes, supported and sheltered housing",Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,292,Adult residential care,Live,Service,1,1
+60,"Care homes, supported and sheltered housing",Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,264,Hospice care for children and young people,Live,Service,1,1
+60,"Care homes, supported and sheltered housing",Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,107,Sheltered and supported housing,Live,Service,1,1
+62,Community centres and facilities,Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,1149,Community centres,Live,Service,1,1
+62,Community centres and facilities,Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,297,Community support groups and organisations,Live,Service,1,1
+62,Community centres and facilities,Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,contains,296,Day centres,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1728,Autism strategy,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1775,Bathing waters ,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1748,Child measurement,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,924,Childhood immunisation,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1749,Contraception,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,199,Health advice,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1688,Health and wellbeing strategy,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1747,Health checks,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,202,HIV / AIDS support for adults,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,435,Infectious disease investigation,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,927,Midwifery and maternity services,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1745,Public health strategic needs assessment,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1827,Rapid lateral flow testing sites,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1746,Stopping smoking,Live,Service,1,1
+65,Public health,Live,,2013-03-04,2013-04-03,Renamed from  'Health and medical advice' in March 2016 review,Function,58,Health and social care,Health and social care,,contains,1776,Water fluoridation schemes,Live,Service,1,1
+59,Adult services,Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,,,,,,1,0
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1757,Adult care plan,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1121,Adult placement,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1743,Care Act 2014 implementation,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1283,Care ambassadors,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,242,Care at home,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,209,Care needs assessment,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,232,Client contact problems,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,833,Leaving hospital,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1284,Mental health support,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,312,Out of hours social care,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,309,Power of attorney,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1759,Register of sight impaired and disabled adults,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1758,Safeguarding Adults Board,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,731,Safeguarding vulnerable adults,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,229,Shared care for adults,Live,Service,1,1
+148,Adult social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1756,Social care financial assessment,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,225,Adult carers advice and support,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,162,Advocacy for carers,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,732,Alternative care providers,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,1437,Carers allowance,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,1755,Carers assessment,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,298,Carers support groups,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,227,Respite care for adults,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,1790,Short breaks,Live,Service,1,1
+61,Carers,Live,,2013-03-04,2013-03-04,,Function,59,Adult services,Health and social care,Adult services,contains,300,Young carers support,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,147,Assisted garden maintenance,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,313,Community alarms and Telecare,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,287,Direct payments,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,178,Home adaptations and aids,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,271,Incontinence laundry service,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,204,Independence support for disabled people,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,315,Mobile meals,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1373,Needle exchange,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,180,Occupational therapy,Live,Service,1,1
+149,Equipment and supporting services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,205,Specialist equipment and support for disabled people,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,728,Advocacy for social care clients,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,727,Alcohol advice and support,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,163,Counselling,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,239,Disabled people - employment and training schemes,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,730,Drugs advice and support,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1820,Gambling addiction advice and support,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,917,Management of personal financial affairs,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,200,Pet care when hospitalised,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,1794,Skills for living,Live,Service,1,1
+150,Help and advice for adults,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,contains,169,Translation and interpreting,Live,Service,1,1
+151,Residential care and housing,Discontinued,,2016-09-12,2016-09-12,Added in March 2016 review,Function,59,Adult services,Health and social care,Adult services,,,,,,0,0
+63,Children and families,Live,,2013-03-04,2013-04-03,,Function,58,Health and social care,Health and social care,,,,,,,1,0
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,266,Child protection,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,310,Child protection orders,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1678,Children's Trust Board,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,878,Common Assessment Framework,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,264,Hospice care for children and young people,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,263,Residential care for children and young people,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,260,Respite care for children and young people,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1760,Safeguarding Children Board,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,261,Shared care for children and young people,Live,Service,1,1
+152,Children and young people social care,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1721,Special guardianship order,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1601,Bookstart,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,19,Childcare out of school hours,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1680,Childcare sufficiency assessment,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,21,Childminders,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,20,Childminding and day care,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1741,Early education for 2 year olds,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,12,Nursery school places,Live,Service,1,1
+25,Early years and childcare,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,18,School holiday schemes,Live,Service,1,1
+153,Fostering and adoption,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,160,Adoption,Live,Service,1,1
+153,Fostering and adoption,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1828,Adoption support services,Live,Service,1,1
+153,Fostering and adoption,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,159,Fostering,Live,Service,1,1
+153,Fostering and adoption,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1781,Staying put arrangement,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1769,Care order,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1723,Care plan,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1282,Educational support for looked after children,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1722,Independent visitors for looked after children,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,840,Support for children in care,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,918,Support for young people leaving care,Live,Service,1,1
+154,Looked after children,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1281,Supported employment for looked after children,Live,Service,1,1
+29,Special education needs,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,8,"Education, health and care (EHC) plan",Live,Service,1,1
+29,Special education needs,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,9,Special educational needs assessment,Live,Service,1,1
+29,Special education needs,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,10,Special educational needs placement in mainstream school,Live,Service,1,1
+29,Special education needs,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,40,Special educational needs transport,Live,Service,1,1
+29,Special education needs,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1056,Special provision capital fund,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,700,Advice for young people,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,631,Chaperone service,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1780,Child assessment order,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1726,Child employment registration,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1676,Child poverty needs assessment,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1677,Child poverty strategy,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,53,Children's centres,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1579,Family information services,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,831,Family support groups and organisations,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,246,HIV / AIDS support for children and young people,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1772,Integrated family support,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,837,Preventative services for children and young people,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1787,Sensory rooms and activities,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1790,Short breaks,Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,1788,"Speech, language and communication therapy",Live,Service,1,1
+155,Support for children and young people,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,63,Children and families,Health and social care,Children and families,contains,300,Young carers support,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1694,Child safety orders,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,173,Final warning,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,174,Implementation of orders,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,175,Parenting orders,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,836,Referral orders,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,177,Reparation orders,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1768,Supervision order,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,176,Youth court procedures,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1695,Youth justice plan,Live,Service,1,1
+22,Youth offending,Live,,2013-03-04,2013-03-04,,Function,63,Children and families,Health and social care,Children and families,contains,1598,Youth Rehabilitation Order,Live,Service,1,1
+64,Health services,Live,,2013-04-03,2013-04-03,,Function,58,Health and social care,Health and social care,,,,,,,1,0
+175,NHS services,Live,,2019-05-16,2019-05-16,Added in May 2019 review,Function,64,Health services,Health and social care,Health services,contains,1814,Hospitals and clinics,Live,Service,1,1
+174,Private and community health providers,Live,,2019-05-16,2019-05-16,Added in May 2019 review,Function,64,Health services,Health and social care,Health services,,,,,,1,0
+66,Housing,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+68,Homelessness and prevention,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1817,Help leaving prison,Live,Service,1,1
+68,Homelessness and prevention,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1800,Homelessness assessment,Live,Service,1,1
+68,Homelessness and prevention,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,112,Homelessness support,Live,Service,1,1
+68,Homelessness and prevention,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1714,Hostels and emergency accommodation,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,109,Council tenant advice,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,664,Drainage,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,880,Energy efficiency,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,652,Housing advice,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,661,Housing and public health,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,110,Housing legal advice,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1124,Housing mediation,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1719,Local authority mortgage scheme (LAMS),Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1616,Private landlord support,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1617,Tenant references,Live,Service,1,1
+69,Housing advice,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,108,Private tenant advice,Discontinued,Service,1,0
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,140,Communal housing repairs,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,129,Council home modernisation,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,125,Demolitions - alternative housing,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,126,Demolitions - disturbance allowance,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,127,Demolitions - tenants' responsibilities,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,139,Emergency out of hours housing repairs,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1054,Housing Care and Repair scheme,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,666,Housing condition surveys,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,144,Housing modernisation schemes,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,141,Housing repairs,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,146,Rechargeable home repairs,Live,Service,1,1
+70,Improvements and repairs,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,132,Temporary accommodation during major works,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,149,Fair rents inspection,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,716,Houses in multiple occupation register,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,150,Houses in multiple occupation safety inspection,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1821,Housing enforcement,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,717,Landlord accreditation,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1802,Landlord or property agent banning order,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1801,Private rented housing inspections,Live,Service,1,1
+71,Multiple occupancy homes,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,contains,1798,Rent repayment order,Live,Service,1,1
+67,Council and community housing,Live,,2013-04-03,2013-04-03,,Function,66,Housing,Housing,,,,,,,1,0
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,86,Allocated council homes,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,711,Change of housing tenancy,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1698,Demoted tenancy,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1619,Ending housing tenancy,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,712,Furnished tenancies,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,89,Housing allocation system,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,117,Housing evictions,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,911,Housing referrals,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,713,Introductory council tenancies,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,88,Mutual home exchange,Live,Service,1,1
+156,Housing allocation,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,92,Registering for a council property,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,122,Communal heating charge,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,143,Decoration and disturbance allowances,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,123,Home contents insurance,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,124,Housing insurance claims,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,120,Housing rent,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,148,Housing rent setting,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1771,Housing service charges,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,119,Late tenancy arrears,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,116,Rent arrears,Live,Service,1,1
+157,Housing finance,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,151,Right to buy your home,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1123,Affordable housing,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,913,Empty residential properties,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,85,Hard to let properties,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,912,House clearance and re-housing,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,87,Housing association  nomination and registration,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1777,Housing transfer to private registered provider,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1720,Shared home ownership,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,868,Social housing policy,Live,Service,1,1
+158,Housing policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,101,Unauthorised house occupants,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1142,Caretaking,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,115,Garage lettings,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1796,Gas safety inspection,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,91,Housing tenant support,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,665,New tenant support,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,654,Tenant housing alterations,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,1012,Tenant participation,Live,Service,1,1
+159,Housing services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,67,Council and community housing,Housing,Council and community housing,contains,157,Property deeds,Discontinued,Service,1,0
+72,Leisure and culture,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+73,Arts and entertainment,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1372,Art commissions,Live,Service,1,1
+73,Arts and entertainment,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1791,Arts  and creative classes,Live,Service,1,1
+73,Arts and entertainment,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,884,Arts development,Live,Service,1,1
+73,Arts and entertainment,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,838,Arts organisations and events,Live,Service,1,1
+73,Arts and entertainment,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1517,Music rooms and recording studios,Live,Service,1,1
+74,Events and exhibitions,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,468,Countryside events,Live,Service,1,1
+74,Events and exhibitions,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,624,Exhibitions,Live,Service,1,1
+74,Events and exhibitions,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,463,Outdoor events,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1466,Accessibility of local facilities,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,642,Activities for children and young people,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,640,Activities for older people,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1789,Exercise and fitness classes,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,465,Fishing ,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,241,Inclusive leisure and social activities,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,456,Leisure passes,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1793,Outdoor activities,Live,Service,1,1
+75,Leisure activities,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,643,Young people's organised activities,Discontinued,Service,1,0
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,604,"Archive loans, donations, bequests and sales",Live,Service,1,1
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,605,Archive withdrawals,Live,Service,1,1
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1654,Armed forces community covenant,Live,Service,1,1
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1653,Community asset transfer,Live,Service,1,1
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,841,Historic sites maintenance,Live,Service,1,1
+77,Local history and heritage,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,849,Memorial provision and maintenance,Live,Service,1,1
+78,Museums and galleries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,621,"Museum and gallery loans, donations and bequests",Live,Service,1,1
+78,Museums and galleries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,839,Museum and gallery shops,Live,Service,1,1
+78,Museums and galleries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1018,Museum collections,Live,Service,1,1
+78,Museums and galleries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1020,Museum events and exhibitions,Live,Service,1,1
+78,Museums and galleries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,620,Museums and galleries,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,336,Municipal golf courses,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1081,Outdoor activity centres,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,641,Sports clubs and groups,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,885,Sports development,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,881,Sports equipment hire,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,451,Sports facilities,Live,Service,1,1
+80,Sports and sporting venues,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1674,Swimming pools and water based activities,Live,Service,1,1
+81,Tourism,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1108,Camping and caravan sites,Live,Service,1,1
+81,Tourism,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,733,Local attractions and facilities,Live,Service,1,1
+81,Tourism,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,623,Tourist information centres,Live,Service,1,1
+81,Tourism,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,734,Visitor accommodation  and holidays,Live,Service,1,1
+81,Tourism,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,contains,1109,Zoos and farm parks,Live,Service,1,1
+76,Libraries,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,,,,,,1,0
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,438,Joining a library,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,437,Library facilities,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,443,Library fines,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,440,Library loan renewals,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,1141,Library loans,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,441,Library reservations,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,446,Library sales,Live,Service,1,1
+160,Library membership,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,444,Mobile libraries,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,448,Archives,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,442,Computers and IT skills,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,1061,European Public Information Centre (EPIC) network,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,439,Library catalogues,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,1062,Library collections,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,445,Library information services,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,1063,Online library resources,Live,Service,1,1
+161,Reference and research,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,447,Special library collections,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,449,Children's libraries,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,44,School library service loans,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,41,School library service training,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,45,School library visits,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,865,Special needs library facilities,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,1286,Teenagers' library services,Live,Service,1,1
+162,School and special libraries,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,76,Libraries,Leisure and culture,Libraries,contains,893,Toy libraries,Live,Service,1,1
+79,Religion and culture,Live,,2013-04-03,2013-04-03,,Function,72,Leisure and culture,Leisure and culture,,,,,,,1,0
+82,"Licences, permits and permissions",Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,48,Child performance licences,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1296,Civil marriage and civil partnership venue licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,646,Club premises certificate,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1692,Early morning restrictions orders,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1357,Greyhound racing track licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,910,Personal alcohol and entertainment licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,860,Premises licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,842,Sports grounds safety certificate,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1256,Sports stands safety certificate,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1160,Stage hypnotism licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1071,Temporary event notice,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,318,Wedding venue licence,Live,Service,1,1
+83,Alcohol and entertainment,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1069,Children's certificate,Discontinued,Service,1,0
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,374,Boarding animals licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,376,Dangerous animals licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,377,Dog breeding licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1077,Performing animals licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,375,Pet shop licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,696,Riding establishment licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,699,Zoo licence,Live,Service,1,1
+84,Animals,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,706,Sheep and goat movement licence,Discontinued,Service,1,0
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,383,Building materials licence,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1655,Highway planting licence,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,898,Homes in multiple occupancy licence,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1354,"Licence for bridges, buildings, beams and cables over or along highway",Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,708,Pollution control - Part A(2) and Part B processes,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,382,Scaffolding and hoarding licence,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1691,Selective area housing licences,Live,Service,1,1
+85,Building and construction,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1690,Selective housing areas,Live,Service,1,1
+89,Food,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,390,Food business registration,Live,Service,1,1
+89,Food,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1293,Food premises approval,Live,Service,1,1
+89,Food,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,845,Food safety advice,Live,Service,1,1
+89,Food,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,391,Late night catering licence,Live,Service,1,1
+89,Food,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,742,Street cafŽ licence,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1683,Club gaming permit,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1684,Club machine permit,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1681,Family entertainment centre gaming machine permits,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1134,Gambling premises licence,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1682,Gambling premises temporary use notices,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1687,Licensed premises gaming machine permit,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,397,Lottery licence,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1685,Prize gaming permit,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,844,Track betting licence,Live,Service,1,1
+90,Gambling and lottery,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1686,Track gambling premises occasional use notices,Live,Service,1,1
+88,Hazardous materials,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,426,Firework safety advice,Live,Service,1,1
+88,Hazardous materials,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,810,Petroleum storage licence,Live,Service,1,1
+88,Hazardous materials,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,697,Petroleum storage licence/certificate,Live,Service,1,1
+88,Hazardous materials,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,380,Poisons licence,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1355,"Consent for cellars, pavement lights and ventilators under street",Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1348,Leaflet distribution consent,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1048,Permission to film and photograph,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1049,Permission to host events,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,521,Skip permits,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1580,Street parties permission,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1362,Verges permitted use,Live,Service,1,1
+165,Permissions and consents,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,1335,Pig movement notification,Discontinued,Service,1,0
+93,Waste and pollution,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,707,Cooling tower registration,Live,Service,1,1
+93,Waste and pollution,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,866,Motor salvage operator registration,Live,Service,1,1
+93,Waste and pollution,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,378,Scrap metal site registration,Live,Service,1,1
+93,Waste and pollution,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,695,Skip operator licence,Live,Service,1,1
+94,Water activities,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,741,Boatman's licence,Live,Service,1,1
+94,Water activities,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,739,Pleasure boat licence,Live,Service,1,1
+94,Water activities,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,contains,740,Self drive boats licence,Live,Service,1,1
+86,Businesses and markets,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,,,,,,1,0
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,681,Acupuncturist registration,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,379,Auction premises licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,743,Caravan site licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1328,Dry cleaning permit,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,648,House to house collection licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,399,Illegal street trading,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,389,Massage and special treatment licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1294,Massage and special treatments therapist registration,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1717,Moveable dwelling site licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1329,Petrol vapour recovery regulation,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1038,Registering business premises,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,682,Second hand dealer registration,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,388,Sex establishment licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,1330,Solvent emissions regulation,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,647,Street collection licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,400,Street trading licence,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,678,Sunday trading notification,Live,Service,1,1
+163,Businesses,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,680,"Tattooist, piercing and electrolysis registration",Live,Service,1,1
+164,Markets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,617,Farmers markets,Live,Service,1,1
+164,Markets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,782,Local markets,Live,Service,1,1
+164,Markets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,679,Market event licence,Live,Service,1,1
+164,Markets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,86,Businesses and markets,"Licences, permits and permissions",Businesses and markets,contains,616,Market stall rental,Live,Service,1,1
+87,Social care and education,Discontinued,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,,,,,,0,0
+91,Transport,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,,,,,,1,0
+166,Roads and streets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,785,Abnormal load notification,Live,Service,1,1
+166,Roads and streets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,744,Highway projection licence,Live,Service,1,1
+166,Roads and streets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,1295,Street works licence,Live,Service,1,1
+166,Roads and streets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,843,Weighbridge operator licence,Live,Service,1,1
+166,Roads and streets,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,1705,Workplace parking levy,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,1729,Dual drivers licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,635,Hackney carriage (taxi) drivers licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,632,Hackney carriage (taxi) licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,634,Private hire drivers licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,636,Private hire operators licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,633,Private hire vehicle (minicab) licence,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,1126,Taxi fare setting,Live,Service,1,1
+167,Taxi and private hire,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,91,Transport,"Licences, permits and permissions",Transport,contains,387,Voluntary sector transport licence,Live,Service,1,1
+92,Utilites,Live,,2013-04-03,2013-04-03,,Function,82,"Licences, permits and permissions","Licences, permits and permissions",,,,,,,1,0
+99,Planning and building control,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+100,Building control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,499,Building control,Live,Service,1,1
+100,Building control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1157,Building control enforcement,Live,Service,1,1
+100,Building control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1397,Domestic heating oil tanks,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1082,Advertisement control,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1797,Brownfield land register,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1711,Community infrastructure levy (CIL),Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1736,Conservation area tree works notification,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,608,Development control,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1158,Development control enforcement,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1734,Discharge of planning conditions,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1738,Environmental Impact Assessment screening,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,487,Full planning applications,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,672,Land charges search,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1712,Lawful Development Certificate existing use,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1732,Lawful Development Certificate proposed use,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1707,Local development order,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1709,Neighbourhood development order,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1730,Outline planning consent,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1057,Planning area search,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,855,Planning consultation,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,516,Planning decision notices,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1740,Planning minor material amendments,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1739,Planning non-material amendments,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1710,Planning obligations,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1737,Planning pre-application advice,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1731,Planning reserved matters,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1733,Prior notification of development,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1735,Removal/variation of planning conditions,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,485,Residential planning applications,Live,Service,1,1
+101,Development control,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1785,Self-build and custom build register,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,668,Building and landscape design,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,511,Conservation areas,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,594,Land use proposals,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,856,Local Development Framework,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,494,Local plans,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,674,Minerals local plan,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1708,Neighbourhood planning,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,1825,Spatial development strategy,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,599,Statutory development plans,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,493,Transport policy,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,675,Waste local plan,Live,Service,1,1
+103,Planning policy,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,contains,515,Zoning,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,510,Allotments,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,512,Conservation area planning,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,600,Dangerous structures,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,602,Demolition control,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,603,Demolition enforcement,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,128,Demolitions - property assessment,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,684,Derelict properties,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,477,Dropped kerbs,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,1122,High hedges,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,593,Land and property availability,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,514,Listed building consent,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,1060,Property enquiries certificates,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,592,Property register,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,1786,Register of land,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,513,Street names and numbering,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,505,Tree management,Live,Service,1,1
+170,Planning services,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,99,Planning and building control,Planning and building control,,contains,508,Tree preservation orders,Live,Service,1,1
+102,Heritage and landscape,Live,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,,,,,,1,0
+104,Town centre management,Discontinued,,2013-04-03,2013-04-03,,Function,99,Planning and building control,Planning and building control,,,,,,,0,0
+23,Schools and education,Live,,2013-03-04,2013-04-03,,Function,,,,,,,,,,1,0
+24,Adult education and lifelong learning,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,contains,27,Adult education and learning,Live,Service,1,1
+24,Adult education and lifelong learning,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,contains,453,Sports coaching,Live,Service,1,1
+27,Higher education,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,contains,1614,16 to 19 bursary fund,Live,Service,1,1
+27,Higher education,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,contains,1135,Education transport for 16-19 year olds,Live,Service,1,1
+26,Educational support,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,,,,,,1,0
+134,Alternative education provision,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1765,Alternative provision of education,Live,Service,1,1
+134,Alternative education provision,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1,Home schooling,Live,Service,1,1
+134,Alternative education provision,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1766,Pupil referral unit,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1090,Education in hospital,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1507,Head lice,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1761,Parenting contract,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,7,"Psychological, psychiatric or social work services in schools",Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,35,School attendance and truancy,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,37,School catering,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1459,School health and safety,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,889,School health promotion,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,890,School nursing,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,5,Supervised medication in school,Live,Service,1,1
+135,Health and welfare at school,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,736,Teenage pregnancy,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,896,Behaviour development in schools,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,895,Citizenship education,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,6,Language and cultural support in school,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,628,Learning mentors,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,627,Mentoring schemes,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,42,School book purchase schemes,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1089,School breakfast clubs,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,891,School transport,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,892,Support for gifted children,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,1394,Support when leaving education,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,894,Transition between schools,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,737,Traveller children support,Live,Service,1,1
+136,Pupil development and support,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,26,Educational support,Schools and education,Educational support,contains,52,Work experience placements,Live,Service,1,1
+28,Schools,Live,,2013-04-03,2013-04-03,,Function,23,Schools and education,Schools and education,,,,,,,1,0
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,49,Education consultations,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,34,Exclusion of school pupils,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1704,Home school agreement,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1699,Local curriculum,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1436,Permitted absence from school,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,31,School assessment  and performance,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,886,School bullying and harassment policy,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1140,School closures,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,630,School complaints procedure,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,32,School curriculum,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,29,School governors,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,15,School pupil records,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1767,School register of attendance,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1454,School regulations and disciplinary procedures,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1764,School session times,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,36,School term and holiday dates,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,33,Schools development plans,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1773,Schools forum,Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1697,Standing advisory council on religious education (SACRE),Live,Service,1,1
+138,Curriculum and policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1145,Young people's learning prospectus,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,43,Book exhibitions,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,897,Extended schools,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,51,Instrumental tuition,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,1050,Musical instrument hire,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,704,Musical instruments assisted purchase,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,47,School clubs and activities,Live,Service,1,1
+139,Extra-curricular activities,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,735,School visits,Live,Service,1,1
+137,School admissions,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,17,Local schools,Live,Service,1,1
+137,School admissions,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,13,Primary school places,Live,Service,1,1
+137,School admissions,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,705,School admission appeals,Live,Service,1,1
+137,School admissions,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,28,Schools,Schools and education,Schools,contains,14,Secondary school places,Live,Service,1,1
+105,Transport and highways,Live,,2013-04-03,2013-04-03,,Function,,,,,,,,,,1,0
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,280,Bus passes for disabled or older people,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,272,Community and accessible transport,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,901,Demand responsive transport,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,275,Disabled taxi card,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,276,Motability scheme,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,221,Rail cards for disabled or older people,Live,Service,1,1
+106,Community transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,273,Older people's bus pass,Discontinued,Service,1,0
+107,Cycling,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1530,Cycle hire,Live,Service,1,1
+107,Cycling,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1566,Cycling schemes,Live,Service,1,1
+108,"Footpaths, byways and bridleways",Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,613,Public rights of way,Live,Service,1,1
+108,"Footpaths, byways and bridleways",Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,614,Rights of way enforcement,Live,Service,1,1
+108,"Footpaths, byways and bridleways",Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1120,Rights of way maintenance,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,478,Council car parks,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1799,Cycle and motorcycle parking,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,274,Disabled parking bays,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,279,Disabled parking permits,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,114,Estate parking,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1725,Lorry parking,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,474,Parking permits,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,473,Parking zones,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,475,Pavement parking,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,479,Private car parks,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,471,Street parking enforcement,Live,Service,1,1
+110,Parking,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,472,Vehicle clamping and removal,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,637,Bus stops and shelters,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1715,Ferries,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,902,Journey planning,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,904,Planned transport service changes,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1778,Quality contract schemes for bus services,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,903,Real time transport information,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,906,"Stations, stops and shelters",Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,905,Transport service disruption information,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,907,Transport tickets and passes,Live,Service,1,1
+111,Public transport,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,908,Transport timetable information,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,547,Cycle training,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,546,Cycling and walking to school schemes,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,545,Dangerous road improvements,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,783,Driver training,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,568,Pedestrian crossings,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1586,Play streets,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,784,Road safety cameras,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,573,School crossing patrols,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,543,Speed humps,Live,Service,1,1
+112,Road safety,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,571,Speed limits,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1599,Bus lanes and routes,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1539,Business travel and commuting,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1111,Car sharing,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1112,Park and ride,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,542,Red routes,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1587,Road congestion reduction,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,548,Traffic schemes,Live,Service,1,1
+113,Transport schemes,Live,,2013-04-03,2013-04-03,,Function,105,Transport and highways,Transport and highways,,contains,1132,Travel plans,Live,Service,1,1
+171,Highways,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,105,Transport and highways,Transport and highways,,,,,,,1,0
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,554,Bridge strengthening,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,566,Communal lighting,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,555,Drain and gully clearance,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,537,Pavement maintenance,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,536,Pavement obstructions,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,558,Personal injury and damage claims,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,553,Road bridges,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,1762,Road construction,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,561,Road gritting,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,557,Road maintenance,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,550,Road obstructions,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,549,Road surveys,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,569,Road works notification,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,562,Snow clearance,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,559,Street furniture,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,564,Street lighting,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,786,Taxi ranks,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,574,Verge maintenance,Live,Service,1,1
+109,Highway maintenance,Live,,2013-04-03,2013-04-03,,Function,171,Highways,Transport and highways,Highways,contains,563,Wall maintenance,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,1706,Prospectively maintainable highways,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,701,Road adoption,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,570,Road closures and diversions,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,551,Roads enforcement,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,552,Roads weight limits,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,1136,Stopping up orders,Live,Service,1,1
+172,Highways policy,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,1713,Termination of highway rights,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,539,Cycle lanes and routes,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,540,Road signs,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,541,Street name plates,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,1117,Tourist signs,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,567,Traffic lights,Live,Service,1,1
+173,Road signs and markings,Live,,2016-09-12,2016-09-12,Added in March 2016 review,Function,171,Highways,Transport and highways,Highways,contains,538,Yellow lines,Live,Service,1,1
