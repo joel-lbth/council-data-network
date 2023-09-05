@@ -1,0 +1,829 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/css/tom-select.min.css" integrity="sha512-43fHB3GLgZfz8QXl1RPQ8O66oIgv3po9cJ5erMt1c4QISq9dYb195T3vr5ImnJPXuVroKcGBPXBFKETW8jrPNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/js/tom-select.complete.js" integrity="sha512-jeF9CfnvzDiw9G9xiksVjxR2lib44Gnovvkv+3CgCG6NXCD4gqlA5nDAVW5WjpA+i+/zKsUWV5xNEbW1X/HH0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="Lottery licence">Lottery licence</option>
+                                
+                                    <option value="Gambling and lottery">Gambling and lottery</option>
+                                
+                                    <option value="Consent for cellars, pavement lights and ventilators under street">Consent for cellars, pavement lights and ventilators under street</option>
+                                
+                                    <option value="Permissions and consents">Permissions and consents</option>
+                                
+                                    <option value="Petroleum storage licence/certificate">Petroleum storage licence/certificate</option>
+                                
+                                    <option value="Hazardous materials">Hazardous materials</option>
+                                
+                                    <option value="Street cafŽ licence">Street cafŽ licence</option>
+                                
+                                    <option value="Food">Food</option>
+                                
+                                    <option value="Advertisement control">Advertisement control</option>
+                                
+                                    <option value="Development control">Development control</option>
+                                
+                                    <option value="Caravan site licence">Caravan site licence</option>
+                                
+                                    <option value="Businesses">Businesses</option>
+                                
+                                    <option value="Building materials licence">Building materials licence</option>
+                                
+                                    <option value="Building and construction">Building and construction</option>
+                                
+                                    <option value="Selective area housing licences">Selective area housing licences</option>
+                                
+                                    <option value="Planning non-material amendments">Planning non-material amendments</option>
+                                
+                                    <option value="Homes in multiple occupancy licence">Homes in multiple occupancy licence</option>
+                                
+                                    <option value="Pig movement notification">Pig movement notification</option>
+                                
+                                    <option value="Child performance licences">Child performance licences</option>
+                                
+                                    <option value="Alcohol and entertainment">Alcohol and entertainment</option>
+                                
+                                    <option value="Taxi fare setting">Taxi fare setting</option>
+                                
+                                    <option value="Taxi and private hire">Taxi and private hire</option>
+                                
+                                    <option value="Street parties permission">Street parties permission</option>
+                                
+                                    <option value="Planning obligations">Planning obligations</option>
+                                
+                                    <option value="Club gaming permit">Club gaming permit</option>
+                                
+                                    <option value="Highway planting licence">Highway planting licence</option>
+                                
+                                    <option value="Roads and streets">Roads and streets</option>
+                                
+                                    <option value="Transport">Transport</option>
+                                
+                                    <option value="Abnormal load notification">Abnormal load notification</option>
+                                
+                                    <option value="Highway projection licence">Highway projection licence</option>
+                                
+                                    <option value="Street works licence">Street works licence</option>
+                                
+                                    <option value="Weighbridge operator licence">Weighbridge operator licence</option>
+                                
+                                    <option value="Workplace parking levy">Workplace parking levy</option>
+                                
+                                    <option value="Planning pre-application advice">Planning pre-application advice</option>
+                                
+                                    <option value="Licences, permits and permissions">Licences, permits and permissions</option>
+                                
+                                    <option value="Leaflet distribution consent">Leaflet distribution consent</option>
+                                
+                                    <option value="Permission to film and photograph">Permission to film and photograph</option>
+                                
+                                    <option value="Permission to host events">Permission to host events</option>
+                                
+                                    <option value="Skip permits">Skip permits</option>
+                                
+                                    <option value="Verges permitted use">Verges permitted use</option>
+                                
+                                    <option value="Local markets">Local markets</option>
+                                
+                                    <option value="Markets">Markets</option>
+                                
+                                    <option value="Environmental Impact Assessment screening">Environmental Impact Assessment screening</option>
+                                
+                                    <option value="Street names and numbering">Street names and numbering</option>
+                                
+                                    <option value="Planning services">Planning services</option>
+                                
+                                    <option value="Licence for bridges, buildings, beams and cables over or along highway">Licence for bridges, buildings, beams and cables over or along highway</option>
+                                
+                                    <option value="Track betting licence">Track betting licence</option>
+                                
+                                    <option value="Spatial development strategy">Spatial development strategy</option>
+                                
+                                    <option value="Planning policy">Planning policy</option>
+                                
+                                    <option value="Stage hypnotism licence">Stage hypnotism licence</option>
+                                
+                                    <option value="Children's certificate">Children's certificate</option>
+                                
+                                    <option value="Waste local plan">Waste local plan</option>
+                                
+                                    <option value="Solvent emissions regulation">Solvent emissions regulation</option>
+                                
+                                    <option value="Sheep and goat movement licence">Sheep and goat movement licence</option>
+                                
+                                    <option value="Animals">Animals</option>
+                                
+                                    <option value="Pet shop licence">Pet shop licence</option>
+                                
+                                    <option value="Removal/variation of planning conditions">Removal/variation of planning conditions</option>
+                                
+                                    <option value="Licensed premises gaming machine permit">Licensed premises gaming machine permit</option>
+                                
+                                    <option value="Building control">Building control</option>
+                                
+                                    <option value="Planning and building control">Planning and building control</option>
+                                
+                                    <option value="Building control enforcement">Building control enforcement</option>
+                                
+                                    <option value="Domestic heating oil tanks">Domestic heating oil tanks</option>
+                                
+                                    <option value="Demolition control">Demolition control</option>
+                                
+                                    <option value="Businesses and markets">Businesses and markets</option>
+                                
+                                    <option value="Acupuncturist registration">Acupuncturist registration</option>
+                                
+                                    <option value="Auction premises licence">Auction premises licence</option>
+                                
+                                    <option value="Dry cleaning permit">Dry cleaning permit</option>
+                                
+                                    <option value="House to house collection licence">House to house collection licence</option>
+                                
+                                    <option value="Illegal street trading">Illegal street trading</option>
+                                
+                                    <option value="Massage and special treatment licence">Massage and special treatment licence</option>
+                                
+                                    <option value="Massage and special treatments therapist registration">Massage and special treatments therapist registration</option>
+                                
+                                    <option value="Moveable dwelling site licence">Moveable dwelling site licence</option>
+                                
+                                    <option value="Petrol vapour recovery regulation">Petrol vapour recovery regulation</option>
+                                
+                                    <option value="Registering business premises">Registering business premises</option>
+                                
+                                    <option value="Second hand dealer registration">Second hand dealer registration</option>
+                                
+                                    <option value="Sex establishment licence">Sex establishment licence</option>
+                                
+                                    <option value="Street collection licence">Street collection licence</option>
+                                
+                                    <option value="Street trading licence">Street trading licence</option>
+                                
+                                    <option value="Sunday trading notification">Sunday trading notification</option>
+                                
+                                    <option value="Tattooist, piercing and electrolysis registration">Tattooist, piercing and electrolysis registration</option>
+                                
+                                    <option value="Outline planning consent">Outline planning consent</option>
+                                
+                                    <option value="Pollution control - Part A(2) and Part B processes">Pollution control - Part A(2) and Part B processes</option>
+                                
+                                    <option value="Register of land">Register of land</option>
+                                
+                                    <option value="Water activities">Water activities</option>
+                                
+                                    <option value="Boatman's licence">Boatman's licence</option>
+                                
+                                    <option value="Pleasure boat licence">Pleasure boat licence</option>
+                                
+                                    <option value="Self drive boats licence">Self drive boats licence</option>
+                                
+                                    <option value="Selective housing areas">Selective housing areas</option>
+                                
+                                    <option value="Club premises certificate">Club premises certificate</option>
+                                
+                                    <option value="Dual drivers licence">Dual drivers licence</option>
+                                
+                                    <option value="Dangerous structures">Dangerous structures</option>
+                                
+                                    <option value="Brownfield land register">Brownfield land register</option>
+                                
+                                    <option value="Community infrastructure levy (CIL)">Community infrastructure levy (CIL)</option>
+                                
+                                    <option value="Conservation area tree works notification">Conservation area tree works notification</option>
+                                
+                                    <option value="Development control enforcement">Development control enforcement</option>
+                                
+                                    <option value="Discharge of planning conditions">Discharge of planning conditions</option>
+                                
+                                    <option value="Full planning applications">Full planning applications</option>
+                                
+                                    <option value="Land charges search">Land charges search</option>
+                                
+                                    <option value="Lawful Development Certificate existing use">Lawful Development Certificate existing use</option>
+                                
+                                    <option value="Lawful Development Certificate proposed use">Lawful Development Certificate proposed use</option>
+                                
+                                    <option value="Local development order">Local development order</option>
+                                
+                                    <option value="Neighbourhood development order">Neighbourhood development order</option>
+                                
+                                    <option value="Planning area search">Planning area search</option>
+                                
+                                    <option value="Planning consultation">Planning consultation</option>
+                                
+                                    <option value="Planning decision notices">Planning decision notices</option>
+                                
+                                    <option value="Planning minor material amendments">Planning minor material amendments</option>
+                                
+                                    <option value="Planning reserved matters">Planning reserved matters</option>
+                                
+                                    <option value="Prior notification of development">Prior notification of development</option>
+                                
+                                    <option value="Residential planning applications">Residential planning applications</option>
+                                
+                                    <option value="Self-build and custom build register">Self-build and custom build register</option>
+                                
+                                    <option value="Food business registration">Food business registration</option>
+                                
+                                    <option value="Food premises approval">Food premises approval</option>
+                                
+                                    <option value="Food safety advice">Food safety advice</option>
+                                
+                                    <option value="Late night catering licence">Late night catering licence</option>
+                                
+                                    <option value="Wedding venue licence">Wedding venue licence</option>
+                                
+                                    <option value="Civil marriage and civil partnership venue licence">Civil marriage and civil partnership venue licence</option>
+                                
+                                    <option value="Market event licence">Market event licence</option>
+                                
+                                    <option value="Firework safety advice">Firework safety advice</option>
+                                
+                                    <option value="Allotments">Allotments</option>
+                                
+                                    <option value="Conservation area planning">Conservation area planning</option>
+                                
+                                    <option value="Demolition enforcement">Demolition enforcement</option>
+                                
+                                    <option value="Demolitions - property assessment">Demolitions - property assessment</option>
+                                
+                                    <option value="Derelict properties">Derelict properties</option>
+                                
+                                    <option value="Dropped kerbs">Dropped kerbs</option>
+                                
+                                    <option value="High hedges">High hedges</option>
+                                
+                                    <option value="Land and property availability">Land and property availability</option>
+                                
+                                    <option value="Listed building consent">Listed building consent</option>
+                                
+                                    <option value="Property enquiries certificates">Property enquiries certificates</option>
+                                
+                                    <option value="Property register">Property register</option>
+                                
+                                    <option value="Tree management">Tree management</option>
+                                
+                                    <option value="Tree preservation orders">Tree preservation orders</option>
+                                
+                                    <option value="Performing animals licence">Performing animals licence</option>
+                                
+                                    <option value="Hackney carriage (taxi) drivers licence">Hackney carriage (taxi) drivers licence</option>
+                                
+                                    <option value="Scaffolding and hoarding licence">Scaffolding and hoarding licence</option>
+                                
+                                    <option value="Neighbourhood planning">Neighbourhood planning</option>
+                                
+                                    <option value="Prize gaming permit">Prize gaming permit</option>
+                                
+                                    <option value="Transport policy">Transport policy</option>
+                                
+                                    <option value="Riding establishment licence">Riding establishment licence</option>
+                                
+                                    <option value="Private hire vehicle (minicab) licence">Private hire vehicle (minicab) licence</option>
+                                
+                                    <option value="Hackney carriage (taxi) licence">Hackney carriage (taxi) licence</option>
+                                
+                                    <option value="Private hire drivers licence">Private hire drivers licence</option>
+                                
+                                    <option value="Private hire operators licence">Private hire operators licence</option>
+                                
+                                    <option value="Voluntary sector transport licence">Voluntary sector transport licence</option>
+                                
+                                    <option value="Boarding animals licence">Boarding animals licence</option>
+                                
+                                    <option value="Temporary event notice">Temporary event notice</option>
+                                
+                                    <option value="Conservation areas">Conservation areas</option>
+                                
+                                    <option value="Market stall rental">Market stall rental</option>
+                                
+                                    <option value="Dog breeding licence">Dog breeding licence</option>
+                                
+                                    <option value="Petroleum storage licence">Petroleum storage licence</option>
+                                
+                                    <option value="Dangerous animals licence">Dangerous animals licence</option>
+                                
+                                    <option value="Club machine permit">Club machine permit</option>
+                                
+                                    <option value="Family entertainment centre gaming machine permits">Family entertainment centre gaming machine permits</option>
+                                
+                                    <option value="Gambling premises licence">Gambling premises licence</option>
+                                
+                                    <option value="Gambling premises temporary use notices">Gambling premises temporary use notices</option>
+                                
+                                    <option value="Track gambling premises occasional use notices">Track gambling premises occasional use notices</option>
+                                
+                                    <option value="Skip operator licence">Skip operator licence</option>
+                                
+                                    <option value="Waste and pollution">Waste and pollution</option>
+                                
+                                    <option value="Building and landscape design">Building and landscape design</option>
+                                
+                                    <option value="Land use proposals">Land use proposals</option>
+                                
+                                    <option value="Local Development Framework">Local Development Framework</option>
+                                
+                                    <option value="Local plans">Local plans</option>
+                                
+                                    <option value="Minerals local plan">Minerals local plan</option>
+                                
+                                    <option value="Statutory development plans">Statutory development plans</option>
+                                
+                                    <option value="Zoning">Zoning</option>
+                                
+                                    <option value="Farmers markets">Farmers markets</option>
+                                
+                                    <option value="Personal alcohol and entertainment licence">Personal alcohol and entertainment licence</option>
+                                
+                                    <option value="Early morning restrictions orders">Early morning restrictions orders</option>
+                                
+                                    <option value="Greyhound racing track licence">Greyhound racing track licence</option>
+                                
+                                    <option value="Premises licence">Premises licence</option>
+                                
+                                    <option value="Sports grounds safety certificate">Sports grounds safety certificate</option>
+                                
+                                    <option value="Sports stands safety certificate">Sports stands safety certificate</option>
+                                
+                                    <option value="Cooling tower registration">Cooling tower registration</option>
+                                
+                                    <option value="Motor salvage operator registration">Motor salvage operator registration</option>
+                                
+                                    <option value="Scrap metal site registration">Scrap metal site registration</option>
+                                
+                                    <option value="Poisons licence">Poisons licence</option>
+                                
+                                    <option value="Zoo licence">Zoo licence</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "Lottery licence", "label": "Lottery licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling and lottery", "label": "Gambling and lottery", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Consent for cellars, pavement lights and ventilators under street", "label": "Consent for cellars, pavement lights and ventilators under street", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permissions and consents", "label": "Permissions and consents", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petroleum storage licence/certificate", "label": "Petroleum storage licence/certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous materials", "label": "Hazardous materials", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street caf\u017d licence", "label": "Street caf\u017d licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food", "label": "Food", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Advertisement control", "label": "Advertisement control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Development control", "label": "Development control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Caravan site licence", "label": "Caravan site licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Businesses", "label": "Businesses", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building materials licence", "label": "Building materials licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building and construction", "label": "Building and construction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Selective area housing licences", "label": "Selective area housing licences", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning non-material amendments", "label": "Planning non-material amendments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Homes in multiple occupancy licence", "label": "Homes in multiple occupancy licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pig movement notification", "label": "Pig movement notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Child performance licences", "label": "Child performance licences", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Alcohol and entertainment", "label": "Alcohol and entertainment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Taxi fare setting", "label": "Taxi fare setting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Taxi and private hire", "label": "Taxi and private hire", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street parties permission", "label": "Street parties permission", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning obligations", "label": "Planning obligations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club gaming permit", "label": "Club gaming permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Highway planting licence", "label": "Highway planting licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Roads and streets", "label": "Roads and streets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Transport", "label": "Transport", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abnormal load notification", "label": "Abnormal load notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Highway projection licence", "label": "Highway projection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street works licence", "label": "Street works licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Weighbridge operator licence", "label": "Weighbridge operator licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Workplace parking levy", "label": "Workplace parking levy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning pre-application advice", "label": "Planning pre-application advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licences, permits and permissions", "label": "Licences, permits and permissions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Leaflet distribution consent", "label": "Leaflet distribution consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permission to film and photograph", "label": "Permission to film and photograph", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permission to host events", "label": "Permission to host events", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip permits", "label": "Skip permits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Verges permitted use", "label": "Verges permitted use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local markets", "label": "Local markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Markets", "label": "Markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental Impact Assessment screening", "label": "Environmental Impact Assessment screening", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street names and numbering", "label": "Street names and numbering", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning services", "label": "Planning services", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licence for bridges, buildings, beams and cables over or along highway", "label": "Licence for bridges, buildings, beams and cables over or along highway", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Track betting licence", "label": "Track betting licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Spatial development strategy", "label": "Spatial development strategy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning policy", "label": "Planning policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Stage hypnotism licence", "label": "Stage hypnotism licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Children\u0027s certificate", "label": "Children\u0027s certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste local plan", "label": "Waste local plan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Solvent emissions regulation", "label": "Solvent emissions regulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sheep and goat movement licence", "label": "Sheep and goat movement licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animals", "label": "Animals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pet shop licence", "label": "Pet shop licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Removal/variation of planning conditions", "label": "Removal/variation of planning conditions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licensed premises gaming machine permit", "label": "Licensed premises gaming machine permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building control", "label": "Building control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning and building control", "label": "Planning and building control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building control enforcement", "label": "Building control enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Domestic heating oil tanks", "label": "Domestic heating oil tanks", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolition control", "label": "Demolition control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Businesses and markets", "label": "Businesses and markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Acupuncturist registration", "label": "Acupuncturist registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Auction premises licence", "label": "Auction premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dry cleaning permit", "label": "Dry cleaning permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "House to house collection licence", "label": "House to house collection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Illegal street trading", "label": "Illegal street trading", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Massage and special treatment licence", "label": "Massage and special treatment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Massage and special treatments therapist registration", "label": "Massage and special treatments therapist registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Moveable dwelling site licence", "label": "Moveable dwelling site licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petrol vapour recovery regulation", "label": "Petrol vapour recovery regulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Registering business premises", "label": "Registering business premises", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Second hand dealer registration", "label": "Second hand dealer registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sex establishment licence", "label": "Sex establishment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street collection licence", "label": "Street collection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street trading licence", "label": "Street trading licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sunday trading notification", "label": "Sunday trading notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tattooist, piercing and electrolysis registration", "label": "Tattooist, piercing and electrolysis registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Outline planning consent", "label": "Outline planning consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pollution control - Part A(2) and Part B processes", "label": "Pollution control - Part A(2) and Part B processes", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Register of land", "label": "Register of land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water activities", "label": "Water activities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Boatman\u0027s licence", "label": "Boatman\u0027s licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pleasure boat licence", "label": "Pleasure boat licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Self drive boats licence", "label": "Self drive boats licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Selective housing areas", "label": "Selective housing areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club premises certificate", "label": "Club premises certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dual drivers licence", "label": "Dual drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous structures", "label": "Dangerous structures", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Brownfield land register", "label": "Brownfield land register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Community infrastructure levy (CIL)", "label": "Community infrastructure levy (CIL)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation area tree works notification", "label": "Conservation area tree works notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Development control enforcement", "label": "Development control enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Discharge of planning conditions", "label": "Discharge of planning conditions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Full planning applications", "label": "Full planning applications", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land charges search", "label": "Land charges search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lawful Development Certificate existing use", "label": "Lawful Development Certificate existing use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lawful Development Certificate proposed use", "label": "Lawful Development Certificate proposed use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local development order", "label": "Local development order", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Neighbourhood development order", "label": "Neighbourhood development order", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning area search", "label": "Planning area search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning consultation", "label": "Planning consultation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning decision notices", "label": "Planning decision notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning minor material amendments", "label": "Planning minor material amendments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning reserved matters", "label": "Planning reserved matters", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Prior notification of development", "label": "Prior notification of development", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential planning applications", "label": "Residential planning applications", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Self-build and custom build register", "label": "Self-build and custom build register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food business registration", "label": "Food business registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food premises approval", "label": "Food premises approval", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety advice", "label": "Food safety advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Late night catering licence", "label": "Late night catering licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Wedding venue licence", "label": "Wedding venue licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Civil marriage and civil partnership venue licence", "label": "Civil marriage and civil partnership venue licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market event licence", "label": "Market event licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Firework safety advice", "label": "Firework safety advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Allotments", "label": "Allotments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation area planning", "label": "Conservation area planning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolition enforcement", "label": "Demolition enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolitions - property assessment", "label": "Demolitions - property assessment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Derelict properties", "label": "Derelict properties", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dropped kerbs", "label": "Dropped kerbs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "High hedges", "label": "High hedges", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land and property availability", "label": "Land and property availability", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Listed building consent", "label": "Listed building consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Property enquiries certificates", "label": "Property enquiries certificates", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Property register", "label": "Property register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tree management", "label": "Tree management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tree preservation orders", "label": "Tree preservation orders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Performing animals licence", "label": "Performing animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hackney carriage (taxi) drivers licence", "label": "Hackney carriage (taxi) drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scaffolding and hoarding licence", "label": "Scaffolding and hoarding licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Neighbourhood planning", "label": "Neighbourhood planning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Prize gaming permit", "label": "Prize gaming permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Transport policy", "label": "Transport policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Riding establishment licence", "label": "Riding establishment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire vehicle (minicab) licence", "label": "Private hire vehicle (minicab) licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hackney carriage (taxi) licence", "label": "Hackney carriage (taxi) licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire drivers licence", "label": "Private hire drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire operators licence", "label": "Private hire operators licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Voluntary sector transport licence", "label": "Voluntary sector transport licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Boarding animals licence", "label": "Boarding animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Temporary event notice", "label": "Temporary event notice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation areas", "label": "Conservation areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market stall rental", "label": "Market stall rental", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog breeding licence", "label": "Dog breeding licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petroleum storage licence", "label": "Petroleum storage licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous animals licence", "label": "Dangerous animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club machine permit", "label": "Club machine permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Family entertainment centre gaming machine permits", "label": "Family entertainment centre gaming machine permits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling premises licence", "label": "Gambling premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling premises temporary use notices", "label": "Gambling premises temporary use notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Track gambling premises occasional use notices", "label": "Track gambling premises occasional use notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip operator licence", "label": "Skip operator licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste and pollution", "label": "Waste and pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building and landscape design", "label": "Building and landscape design", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land use proposals", "label": "Land use proposals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local Development Framework", "label": "Local Development Framework", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local plans", "label": "Local plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Minerals local plan", "label": "Minerals local plan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Statutory development plans", "label": "Statutory development plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Zoning", "label": "Zoning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Farmers markets", "label": "Farmers markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Personal alcohol and entertainment licence", "label": "Personal alcohol and entertainment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Early morning restrictions orders", "label": "Early morning restrictions orders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Greyhound racing track licence", "label": "Greyhound racing track licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Premises licence", "label": "Premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sports grounds safety certificate", "label": "Sports grounds safety certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sports stands safety certificate", "label": "Sports stands safety certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cooling tower registration", "label": "Cooling tower registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Motor salvage operator registration", "label": "Motor salvage operator registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scrap metal site registration", "label": "Scrap metal site registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Poisons licence", "label": "Poisons licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Zoo licence", "label": "Zoo licence", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "Lottery licence", "to": "Gambling and lottery", "width": 1}, {"from": "Consent for cellars, pavement lights and ventilators under street", "to": "Permissions and consents", "width": 1}, {"from": "Petroleum storage licence/certificate", "to": "Hazardous materials", "width": 1}, {"from": "Street caf\u017d licence", "to": "Food", "width": 1}, {"from": "Advertisement control", "to": "Development control", "width": 1}, {"from": "Caravan site licence", "to": "Businesses", "width": 1}, {"from": "Building materials licence", "to": "Building and construction", "width": 1}, {"from": "Selective area housing licences", "to": "Building and construction", "width": 1}, {"from": "Planning non-material amendments", "to": "Development control", "width": 1}, {"from": "Homes in multiple occupancy licence", "to": "Building and construction", "width": 1}, {"from": "Pig movement notification", "to": "Permissions and consents", "width": 1}, {"from": "Child performance licences", "to": "Alcohol and entertainment", "width": 1}, {"from": "Taxi fare setting", "to": "Taxi and private hire", "width": 1}, {"from": "Street parties permission", "to": "Permissions and consents", "width": 1}, {"from": "Planning obligations", "to": "Development control", "width": 1}, {"from": "Club gaming permit", "to": "Gambling and lottery", "width": 1}, {"from": "Highway planting licence", "to": "Building and construction", "width": 1}, {"from": "Roads and streets", "to": "Transport", "width": 1}, {"from": "Roads and streets", "to": "Abnormal load notification", "width": 1}, {"from": "Roads and streets", "to": "Highway projection licence", "width": 1}, {"from": "Roads and streets", "to": "Street works licence", "width": 1}, {"from": "Roads and streets", "to": "Weighbridge operator licence", "width": 1}, {"from": "Roads and streets", "to": "Workplace parking levy", "width": 1}, {"from": "Planning pre-application advice", "to": "Development control", "width": 1}, {"from": "Permissions and consents", "to": "Licences, permits and permissions", "width": 1}, {"from": "Permissions and consents", "to": "Leaflet distribution consent", "width": 1}, {"from": "Permissions and consents", "to": "Permission to film and photograph", "width": 1}, {"from": "Permissions and consents", "to": "Permission to host events", "width": 1}, {"from": "Permissions and consents", "to": "Skip permits", "width": 1}, {"from": "Permissions and consents", "to": "Verges permitted use", "width": 1}, {"from": "Local markets", "to": "Markets", "width": 1}, {"from": "Environmental Impact Assessment screening", "to": "Development control", "width": 1}, {"from": "Street names and numbering", "to": "Planning services", "width": 1}, {"from": "Licence for bridges, buildings, beams and cables over or along highway", "to": "Building and construction", "width": 1}, {"from": "Track betting licence", "to": "Gambling and lottery", "width": 1}, {"from": "Spatial development strategy", "to": "Planning policy", "width": 1}, {"from": "Stage hypnotism licence", "to": "Alcohol and entertainment", "width": 1}, {"from": "Children\u0027s certificate", "to": "Alcohol and entertainment", "width": 1}, {"from": "Waste local plan", "to": "Planning policy", "width": 1}, {"from": "Solvent emissions regulation", "to": "Businesses", "width": 1}, {"from": "Sheep and goat movement licence", "to": "Animals", "width": 1}, {"from": "Pet shop licence", "to": "Animals", "width": 1}, {"from": "Removal/variation of planning conditions", "to": "Development control", "width": 1}, {"from": "Licensed premises gaming machine permit", "to": "Gambling and lottery", "width": 1}, {"from": "Building control", "to": "Planning and building control", "width": 1}, {"from": "Building control", "to": "Building control", "width": 1}, {"from": "Building control", "to": "Building control enforcement", "width": 1}, {"from": "Building control", "to": "Domestic heating oil tanks", "width": 1}, {"from": "Demolition control", "to": "Planning services", "width": 1}, {"from": "Businesses", "to": "Businesses and markets", "width": 1}, {"from": "Businesses", "to": "Acupuncturist registration", "width": 1}, {"from": "Businesses", "to": "Auction premises licence", "width": 1}, {"from": "Businesses", "to": "Dry cleaning permit", "width": 1}, {"from": "Businesses", "to": "House to house collection licence", "width": 1}, {"from": "Businesses", "to": "Illegal street trading", "width": 1}, {"from": "Businesses", "to": "Massage and special treatment licence", "width": 1}, {"from": "Businesses", "to": "Massage and special treatments therapist registration", "width": 1}, {"from": "Businesses", "to": "Moveable dwelling site licence", "width": 1}, {"from": "Businesses", "to": "Petrol vapour recovery regulation", "width": 1}, {"from": "Businesses", "to": "Registering business premises", "width": 1}, {"from": "Businesses", "to": "Second hand dealer registration", "width": 1}, {"from": "Businesses", "to": "Sex establishment licence", "width": 1}, {"from": "Businesses", "to": "Street collection licence", "width": 1}, {"from": "Businesses", "to": "Street trading licence", "width": 1}, {"from": "Businesses", "to": "Sunday trading notification", "width": 1}, {"from": "Businesses", "to": "Tattooist, piercing and electrolysis registration", "width": 1}, {"from": "Outline planning consent", "to": "Development control", "width": 1}, {"from": "Pollution control - Part A(2) and Part B processes", "to": "Building and construction", "width": 1}, {"from": "Register of land", "to": "Planning services", "width": 1}, {"from": "Water activities", "to": "Licences, permits and permissions", "width": 1}, {"from": "Water activities", "to": "Boatman\u0027s licence", "width": 1}, {"from": "Water activities", "to": "Pleasure boat licence", "width": 1}, {"from": "Water activities", "to": "Self drive boats licence", "width": 1}, {"from": "Selective housing areas", "to": "Building and construction", "width": 1}, {"from": "Club premises certificate", "to": "Alcohol and entertainment", "width": 1}, {"from": "Dual drivers licence", "to": "Taxi and private hire", "width": 1}, {"from": "Dangerous structures", "to": "Planning services", "width": 1}, {"from": "Development control", "to": "Planning and building control", "width": 1}, {"from": "Development control", "to": "Brownfield land register", "width": 1}, {"from": "Development control", "to": "Community infrastructure levy (CIL)", "width": 1}, {"from": "Development control", "to": "Conservation area tree works notification", "width": 1}, {"from": "Development control", "to": "Development control", "width": 1}, {"from": "Development control", "to": "Development control enforcement", "width": 1}, {"from": "Development control", "to": "Discharge of planning conditions", "width": 1}, {"from": "Development control", "to": "Full planning applications", "width": 1}, {"from": "Development control", "to": "Land charges search", "width": 1}, {"from": "Development control", "to": "Lawful Development Certificate existing use", "width": 1}, {"from": "Development control", "to": "Lawful Development Certificate proposed use", "width": 1}, {"from": "Development control", "to": "Local development order", "width": 1}, {"from": "Development control", "to": "Neighbourhood development order", "width": 1}, {"from": "Development control", "to": "Planning area search", "width": 1}, {"from": "Development control", "to": "Planning consultation", "width": 1}, {"from": "Development control", "to": "Planning decision notices", "width": 1}, {"from": "Development control", "to": "Planning minor material amendments", "width": 1}, {"from": "Development control", "to": "Planning reserved matters", "width": 1}, {"from": "Development control", "to": "Prior notification of development", "width": 1}, {"from": "Development control", "to": "Residential planning applications", "width": 1}, {"from": "Development control", "to": "Self-build and custom build register", "width": 1}, {"from": "Food", "to": "Licences, permits and permissions", "width": 1}, {"from": "Food", "to": "Food business registration", "width": 1}, {"from": "Food", "to": "Food premises approval", "width": 1}, {"from": "Food", "to": "Food safety advice", "width": 1}, {"from": "Food", "to": "Late night catering licence", "width": 1}, {"from": "Wedding venue licence", "to": "Alcohol and entertainment", "width": 1}, {"from": "Civil marriage and civil partnership venue licence", "to": "Alcohol and entertainment", "width": 1}, {"from": "Market event licence", "to": "Markets", "width": 1}, {"from": "Firework safety advice", "to": "Hazardous materials", "width": 1}, {"from": "Planning services", "to": "Planning and building control", "width": 1}, {"from": "Planning services", "to": "Allotments", "width": 1}, {"from": "Planning services", "to": "Conservation area planning", "width": 1}, {"from": "Planning services", "to": "Demolition enforcement", "width": 1}, {"from": "Planning services", "to": "Demolitions - property assessment", "width": 1}, {"from": "Planning services", "to": "Derelict properties", "width": 1}, {"from": "Planning services", "to": "Dropped kerbs", "width": 1}, {"from": "Planning services", "to": "High hedges", "width": 1}, {"from": "Planning services", "to": "Land and property availability", "width": 1}, {"from": "Planning services", "to": "Listed building consent", "width": 1}, {"from": "Planning services", "to": "Property enquiries certificates", "width": 1}, {"from": "Planning services", "to": "Property register", "width": 1}, {"from": "Planning services", "to": "Tree management", "width": 1}, {"from": "Planning services", "to": "Tree preservation orders", "width": 1}, {"from": "Performing animals licence", "to": "Animals", "width": 1}, {"from": "Hackney carriage (taxi) drivers licence", "to": "Taxi and private hire", "width": 1}, {"from": "Building and construction", "to": "Licences, permits and permissions", "width": 1}, {"from": "Building and construction", "to": "Scaffolding and hoarding licence", "width": 1}, {"from": "Neighbourhood planning", "to": "Planning policy", "width": 1}, {"from": "Prize gaming permit", "to": "Gambling and lottery", "width": 1}, {"from": "Transport policy", "to": "Planning policy", "width": 1}, {"from": "Riding establishment licence", "to": "Animals", "width": 1}, {"from": "Private hire vehicle (minicab) licence", "to": "Taxi and private hire", "width": 1}, {"from": "Taxi and private hire", "to": "Transport", "width": 1}, {"from": "Taxi and private hire", "to": "Hackney carriage (taxi) licence", "width": 1}, {"from": "Taxi and private hire", "to": "Private hire drivers licence", "width": 1}, {"from": "Taxi and private hire", "to": "Private hire operators licence", "width": 1}, {"from": "Taxi and private hire", "to": "Voluntary sector transport licence", "width": 1}, {"from": "Boarding animals licence", "to": "Animals", "width": 1}, {"from": "Temporary event notice", "to": "Alcohol and entertainment", "width": 1}, {"from": "Conservation areas", "to": "Planning policy", "width": 1}, {"from": "Market stall rental", "to": "Markets", "width": 1}, {"from": "Planning and building control", "to": "Planning policy", "width": 1}, {"from": "Dog breeding licence", "to": "Animals", "width": 1}, {"from": "Petroleum storage licence", "to": "Hazardous materials", "width": 1}, {"from": "Dangerous animals licence", "to": "Animals", "width": 1}, {"from": "Gambling and lottery", "to": "Licences, permits and permissions", "width": 1}, {"from": "Gambling and lottery", "to": "Club machine permit", "width": 1}, {"from": "Gambling and lottery", "to": "Family entertainment centre gaming machine permits", "width": 1}, {"from": "Gambling and lottery", "to": "Gambling premises licence", "width": 1}, {"from": "Gambling and lottery", "to": "Gambling premises temporary use notices", "width": 1}, {"from": "Gambling and lottery", "to": "Track gambling premises occasional use notices", "width": 1}, {"from": "Skip operator licence", "to": "Waste and pollution", "width": 1}, {"from": "Planning policy", "to": "Building and landscape design", "width": 1}, {"from": "Planning policy", "to": "Land use proposals", "width": 1}, {"from": "Planning policy", "to": "Local Development Framework", "width": 1}, {"from": "Planning policy", "to": "Local plans", "width": 1}, {"from": "Planning policy", "to": "Minerals local plan", "width": 1}, {"from": "Planning policy", "to": "Statutory development plans", "width": 1}, {"from": "Planning policy", "to": "Zoning", "width": 1}, {"from": "Farmers markets", "to": "Markets", "width": 1}, {"from": "Licences, permits and permissions", "to": "Alcohol and entertainment", "width": 1}, {"from": "Licences, permits and permissions", "to": "Animals", "width": 1}, {"from": "Licences, permits and permissions", "to": "Hazardous materials", "width": 1}, {"from": "Licences, permits and permissions", "to": "Waste and pollution", "width": 1}, {"from": "Licences, permits and permissions", "to": "Businesses and markets", "width": 1}, {"from": "Licences, permits and permissions", "to": "Transport", "width": 1}, {"from": "Personal alcohol and entertainment licence", "to": "Alcohol and entertainment", "width": 1}, {"from": "Alcohol and entertainment", "to": "Early morning restrictions orders", "width": 1}, {"from": "Alcohol and entertainment", "to": "Greyhound racing track licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Premises licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Sports grounds safety certificate", "width": 1}, {"from": "Alcohol and entertainment", "to": "Sports stands safety certificate", "width": 1}, {"from": "Businesses and markets", "to": "Markets", "width": 1}, {"from": "Waste and pollution", "to": "Cooling tower registration", "width": 1}, {"from": "Waste and pollution", "to": "Motor salvage operator registration", "width": 1}, {"from": "Waste and pollution", "to": "Scrap metal site registration", "width": 1}, {"from": "Hazardous materials", "to": "Poisons licence", "width": 1}, {"from": "Zoo licence", "to": "Animals", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
