@@ -1,0 +1,743 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/css/tom-select.min.css" integrity="sha512-43fHB3GLgZfz8QXl1RPQ8O66oIgv3po9cJ5erMt1c4QISq9dYb195T3vr5ImnJPXuVroKcGBPXBFKETW8jrPNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/js/tom-select.complete.js" integrity="sha512-jeF9CfnvzDiw9G9xiksVjxR2lib44Gnovvkv+3CgCG6NXCD4gqlA5nDAVW5WjpA+i+/zKsUWV5xNEbW1X/HH0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="Forest and woodland management">Forest and woodland management</option>
+                                
+                                    <option value="Countryside and farming">Countryside and farming</option>
+                                
+                                    <option value="Private water supply analysis">Private water supply analysis</option>
+                                
+                                    <option value="Pollution control">Pollution control</option>
+                                
+                                    <option value="Idling vehicles">Idling vehicles</option>
+                                
+                                    <option value="Environmental health emergencies out of hours">Environmental health emergencies out of hours</option>
+                                
+                                    <option value="Environmental health">Environmental health</option>
+                                
+                                    <option value="Field study centres">Field study centres</option>
+                                
+                                    <option value="Environmental information regulations">Environmental information regulations</option>
+                                
+                                    <option value="Ecology and geology">Ecology and geology</option>
+                                
+                                    <option value="Conservation and sustainability">Conservation and sustainability</option>
+                                
+                                    <option value="Grave purchasing">Grave purchasing</option>
+                                
+                                    <option value="Funerals and cremations">Funerals and cremations</option>
+                                
+                                    <option value="Residential recycling collections">Residential recycling collections</option>
+                                
+                                    <option value="Recycling">Recycling</option>
+                                
+                                    <option value="Countryside rangers">Countryside rangers</option>
+                                
+                                    <option value="Light pollution">Light pollution</option>
+                                
+                                    <option value="Graffiti removal">Graffiti removal</option>
+                                
+                                    <option value="Street care and cleaning">Street care and cleaning</option>
+                                
+                                    <option value="Litter enforcement">Litter enforcement</option>
+                                
+                                    <option value="RADAR keys for public toilets">RADAR keys for public toilets</option>
+                                
+                                    <option value="Outdoor play facilities">Outdoor play facilities</option>
+                                
+                                    <option value="Parks and open spaces">Parks and open spaces</option>
+                                
+                                    <option value="Dog wardens">Dog wardens</option>
+                                
+                                    <option value="Animal welfare">Animal welfare</option>
+                                
+                                    <option value="Countryside surveys">Countryside surveys</option>
+                                
+                                    <option value="Household waste collection">Household waste collection</option>
+                                
+                                    <option value="Household waste">Household waste</option>
+                                
+                                    <option value="Household waste enforcement">Household waste enforcement</option>
+                                
+                                    <option value="Exhaust emission testing">Exhaust emission testing</option>
+                                
+                                    <option value="Food safety inspections">Food safety inspections</option>
+                                
+                                    <option value="Air quality">Air quality</option>
+                                
+                                    <option value="Noise pollution">Noise pollution</option>
+                                
+                                    <option value="Commercial  clinical waste disposal">Commercial  clinical waste disposal</option>
+                                
+                                    <option value="Commercial waste">Commercial waste</option>
+                                
+                                    <option value="Flyposting">Flyposting</option>
+                                
+                                    <option value="Abandoned vehicles">Abandoned vehicles</option>
+                                
+                                    <option value="Animal by-products enforcement">Animal by-products enforcement</option>
+                                
+                                    <option value="Recycling bags and containers">Recycling bags and containers</option>
+                                
+                                    <option value="Contaminated land">Contaminated land</option>
+                                
+                                    <option value="Archaeological consultancy">Archaeological consultancy</option>
+                                
+                                    <option value="Clinical household waste">Clinical household waste</option>
+                                
+                                    <option value="Recycling advice and initiatives">Recycling advice and initiatives</option>
+                                
+                                    <option value="Septic tanks and cesspits">Septic tanks and cesspits</option>
+                                
+                                    <option value="Recycling sites">Recycling sites</option>
+                                
+                                    <option value="Dog fouling">Dog fouling</option>
+                                
+                                    <option value="Sustainable development">Sustainable development</option>
+                                
+                                    <option value="Archaeological excavations and surveys">Archaeological excavations and surveys</option>
+                                
+                                    <option value="Open access land">Open access land</option>
+                                
+                                    <option value="Dangerous dogs enforcement">Dangerous dogs enforcement</option>
+                                
+                                    <option value="Commercial waste bins">Commercial waste bins</option>
+                                
+                                    <option value="Commercial waste collection">Commercial waste collection</option>
+                                
+                                    <option value="Commercial waste disposal sites">Commercial waste disposal sites</option>
+                                
+                                    <option value="Commercial waste special collections">Commercial waste special collections</option>
+                                
+                                    <option value="Commercial waste spillage">Commercial waste spillage</option>
+                                
+                                    <option value="Skip hire">Skip hire</option>
+                                
+                                    <option value="Environmental protection">Environmental protection</option>
+                                
+                                    <option value="Dog registration">Dog registration</option>
+                                
+                                    <option value="Pet burial">Pet burial</option>
+                                
+                                    <option value="Stray animals">Stray animals</option>
+                                
+                                    <option value="Grass cutting">Grass cutting</option>
+                                
+                                    <option value="Independent funerals">Independent funerals</option>
+                                
+                                    <option value="Flytipping">Flytipping</option>
+                                
+                                    <option value="Abandoned shopping trolleys">Abandoned shopping trolleys</option>
+                                
+                                    <option value="Grazing land">Grazing land</option>
+                                
+                                    <option value="Food poisoning and contamination">Food poisoning and contamination</option>
+                                
+                                    <option value="Mortuaries">Mortuaries</option>
+                                
+                                    <option value="Countryside management">Countryside management</option>
+                                
+                                    <option value="Gypsy and traveller sites">Gypsy and traveller sites</option>
+                                
+                                    <option value="Food safety enforcement">Food safety enforcement</option>
+                                
+                                    <option value="Household waste accumulation">Household waste accumulation</option>
+                                
+                                    <option value="Farming advice">Farming advice</option>
+                                
+                                    <option value="Local access forums">Local access forums</option>
+                                
+                                    <option value="Litter bins">Litter bins</option>
+                                
+                                    <option value="Civil funerals">Civil funerals</option>
+                                
+                                    <option value="Area waste strategy">Area waste strategy</option>
+                                
+                                    <option value="Waste policy">Waste policy</option>
+                                
+                                    <option value="Residential waste spillages">Residential waste spillages</option>
+                                
+                                    <option value="Household garden waste">Household garden waste</option>
+                                
+                                    <option value="Market cleaning">Market cleaning</option>
+                                
+                                    <option value="Construction site pollution">Construction site pollution</option>
+                                
+                                    <option value="Household waste disposal sites">Household waste disposal sites</option>
+                                
+                                    <option value="Litter removal">Litter removal</option>
+                                
+                                    <option value="Surface water management plans">Surface water management plans</option>
+                                
+                                    <option value="Syringe disposal">Syringe disposal</option>
+                                
+                                    <option value="Hazardous waste">Hazardous waste</option>
+                                
+                                    <option value="Air handling units">Air handling units</option>
+                                
+                                    <option value="Asbestos management">Asbestos management</option>
+                                
+                                    <option value="Clean Air Act approval">Clean Air Act approval</option>
+                                
+                                    <option value="Smoke control areas">Smoke control areas</option>
+                                
+                                    <option value="Statutory nuisances">Statutory nuisances</option>
+                                
+                                    <option value="Water pollution">Water pollution</option>
+                                
+                                    <option value="Water quality monitoring">Water quality monitoring</option>
+                                
+                                    <option value="Geotechnology">Geotechnology</option>
+                                
+                                    <option value="Hazardous substance control">Hazardous substance control</option>
+                                
+                                    <option value="Community farms">Community farms</option>
+                                
+                                    <option value="Countryside education">Countryside education</option>
+                                
+                                    <option value="Countryside facilities">Countryside facilities</option>
+                                
+                                    <option value="Countryside visitor centres">Countryside visitor centres</option>
+                                
+                                    <option value="Countryside volunteers">Countryside volunteers</option>
+                                
+                                    <option value="Nature reserves">Nature reserves</option>
+                                
+                                    <option value="Smallholdings">Smallholdings</option>
+                                
+                                    <option value="Cemeteries and crematoria">Cemeteries and crematoria</option>
+                                
+                                    <option value="Countryside conservation">Countryside conservation</option>
+                                
+                                    <option value="Environmental policy">Environmental policy</option>
+                                
+                                    <option value="Landscape character assessment">Landscape character assessment</option>
+                                
+                                    <option value="Sustainable drainage systems">Sustainable drainage systems</option>
+                                
+                                    <option value="Waste reduction">Waste reduction</option>
+                                
+                                    <option value="Road spillages">Road spillages</option>
+                                
+                                    <option value="Street cleaning">Street cleaning</option>
+                                
+                                    <option value="Exhumations">Exhumations</option>
+                                
+                                    <option value="Memorial construction">Memorial construction</option>
+                                
+                                    <option value="Municipal funerals">Municipal funerals</option>
+                                
+                                    <option value="Repatriation of bodies abroad">Repatriation of bodies abroad</option>
+                                
+                                    <option value="Repatriation of bodies to England and Wales">Repatriation of bodies to England and Wales</option>
+                                
+                                    <option value="Swimming pool and spa pool monitoring">Swimming pool and spa pool monitoring</option>
+                                
+                                    <option value="Recycling of batteries">Recycling of batteries</option>
+                                
+                                    <option value="Bulky household waste collections">Bulky household waste collections</option>
+                                
+                                    <option value="Refuse duty of care enforcement">Refuse duty of care enforcement</option>
+                                
+                                    <option value="Public toilets">Public toilets</option>
+                                
+                                    <option value="Hazardous waste collection">Hazardous waste collection</option>
+                                
+                                    <option value="Composters">Composters</option>
+                                
+                                    <option value="Household waste assisted collection">Household waste assisted collection</option>
+                                
+                                    <option value="Household waste containers">Household waste containers</option>
+                                
+                                    <option value="Dog  waste bins">Dog  waste bins</option>
+                                
+                                    <option value="Scientific services">Scientific services</option>
+                                
+                                    <option value="Food waste recycling">Food waste recycling</option>
+                                
+                                    <option value="Pest control">Pest control</option>
+                                
+                                    <option value="Smoking ban">Smoking ban</option>
+                                
+                                    <option value="Common land and village greens">Common land and village greens</option>
+                                
+                                    <option value="Dead animal removal">Dead animal removal</option>
+                                
+                                    <option value="Parks and open space maintenance and landscaping">Parks and open space maintenance and landscaping</option>
+                                
+                                    <option value="Parks and open space landscaping">Parks and open space landscaping</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "Forest and woodland management", "label": "Forest and woodland management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside and farming", "label": "Countryside and farming", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private water supply analysis", "label": "Private water supply analysis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pollution control", "label": "Pollution control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Idling vehicles", "label": "Idling vehicles", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental health emergencies out of hours", "label": "Environmental health emergencies out of hours", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental health", "label": "Environmental health", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Field study centres", "label": "Field study centres", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental information regulations", "label": "Environmental information regulations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ecology and geology", "label": "Ecology and geology", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation and sustainability", "label": "Conservation and sustainability", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grave purchasing", "label": "Grave purchasing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Funerals and cremations", "label": "Funerals and cremations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential recycling collections", "label": "Residential recycling collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling", "label": "Recycling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside rangers", "label": "Countryside rangers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Light pollution", "label": "Light pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Graffiti removal", "label": "Graffiti removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street care and cleaning", "label": "Street care and cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter enforcement", "label": "Litter enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RADAR keys for public toilets", "label": "RADAR keys for public toilets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Outdoor play facilities", "label": "Outdoor play facilities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open spaces", "label": "Parks and open spaces", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog wardens", "label": "Dog wardens", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animal welfare", "label": "Animal welfare", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside surveys", "label": "Countryside surveys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste collection", "label": "Household waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste", "label": "Household waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste enforcement", "label": "Household waste enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Exhaust emission testing", "label": "Exhaust emission testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety inspections", "label": "Food safety inspections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Air quality", "label": "Air quality", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Noise pollution", "label": "Noise pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial  clinical waste disposal", "label": "Commercial  clinical waste disposal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste", "label": "Commercial waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Flyposting", "label": "Flyposting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abandoned vehicles", "label": "Abandoned vehicles", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animal by-products enforcement", "label": "Animal by-products enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling bags and containers", "label": "Recycling bags and containers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Contaminated land", "label": "Contaminated land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Archaeological consultancy", "label": "Archaeological consultancy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Clinical household waste", "label": "Clinical household waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling advice and initiatives", "label": "Recycling advice and initiatives", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Septic tanks and cesspits", "label": "Septic tanks and cesspits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling sites", "label": "Recycling sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog fouling", "label": "Dog fouling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sustainable development", "label": "Sustainable development", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Archaeological excavations and surveys", "label": "Archaeological excavations and surveys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Open access land", "label": "Open access land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous dogs enforcement", "label": "Dangerous dogs enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste bins", "label": "Commercial waste bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste collection", "label": "Commercial waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste disposal sites", "label": "Commercial waste disposal sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste special collections", "label": "Commercial waste special collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste spillage", "label": "Commercial waste spillage", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip hire", "label": "Skip hire", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental protection", "label": "Environmental protection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog registration", "label": "Dog registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pet burial", "label": "Pet burial", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Stray animals", "label": "Stray animals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grass cutting", "label": "Grass cutting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Independent funerals", "label": "Independent funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Flytipping", "label": "Flytipping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abandoned shopping trolleys", "label": "Abandoned shopping trolleys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grazing land", "label": "Grazing land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food poisoning and contamination", "label": "Food poisoning and contamination", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mortuaries", "label": "Mortuaries", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside management", "label": "Countryside management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gypsy and traveller sites", "label": "Gypsy and traveller sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety enforcement", "label": "Food safety enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste accumulation", "label": "Household waste accumulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Farming advice", "label": "Farming advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local access forums", "label": "Local access forums", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter bins", "label": "Litter bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Civil funerals", "label": "Civil funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Area waste strategy", "label": "Area waste strategy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste policy", "label": "Waste policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential waste spillages", "label": "Residential waste spillages", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household garden waste", "label": "Household garden waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market cleaning", "label": "Market cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Construction site pollution", "label": "Construction site pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste disposal sites", "label": "Household waste disposal sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter removal", "label": "Litter removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Surface water management plans", "label": "Surface water management plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Syringe disposal", "label": "Syringe disposal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous waste", "label": "Hazardous waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Air handling units", "label": "Air handling units", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Asbestos management", "label": "Asbestos management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Clean Air Act approval", "label": "Clean Air Act approval", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smoke control areas", "label": "Smoke control areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Statutory nuisances", "label": "Statutory nuisances", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water pollution", "label": "Water pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water quality monitoring", "label": "Water quality monitoring", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Geotechnology", "label": "Geotechnology", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous substance control", "label": "Hazardous substance control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Community farms", "label": "Community farms", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside education", "label": "Countryside education", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside facilities", "label": "Countryside facilities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside visitor centres", "label": "Countryside visitor centres", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside volunteers", "label": "Countryside volunteers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Nature reserves", "label": "Nature reserves", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smallholdings", "label": "Smallholdings", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cemeteries and crematoria", "label": "Cemeteries and crematoria", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside conservation", "label": "Countryside conservation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental policy", "label": "Environmental policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Landscape character assessment", "label": "Landscape character assessment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sustainable drainage systems", "label": "Sustainable drainage systems", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste reduction", "label": "Waste reduction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Road spillages", "label": "Road spillages", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street cleaning", "label": "Street cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Exhumations", "label": "Exhumations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Memorial construction", "label": "Memorial construction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Municipal funerals", "label": "Municipal funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Repatriation of bodies abroad", "label": "Repatriation of bodies abroad", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Repatriation of bodies to England and Wales", "label": "Repatriation of bodies to England and Wales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Swimming pool and spa pool monitoring", "label": "Swimming pool and spa pool monitoring", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling of batteries", "label": "Recycling of batteries", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Bulky household waste collections", "label": "Bulky household waste collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Refuse duty of care enforcement", "label": "Refuse duty of care enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Public toilets", "label": "Public toilets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous waste collection", "label": "Hazardous waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Composters", "label": "Composters", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste assisted collection", "label": "Household waste assisted collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste containers", "label": "Household waste containers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog  waste bins", "label": "Dog  waste bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scientific services", "label": "Scientific services", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food waste recycling", "label": "Food waste recycling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pest control", "label": "Pest control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smoking ban", "label": "Smoking ban", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Common land and village greens", "label": "Common land and village greens", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dead animal removal", "label": "Dead animal removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open space maintenance and landscaping", "label": "Parks and open space maintenance and landscaping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open space landscaping", "label": "Parks and open space landscaping", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "Forest and woodland management", "to": "Countryside and farming", "width": 1}, {"from": "Private water supply analysis", "to": "Pollution control", "width": 1}, {"from": "Idling vehicles", "to": "Pollution control", "width": 1}, {"from": "Environmental health emergencies out of hours", "to": "Environmental health", "width": 1}, {"from": "Field study centres", "to": "Countryside and farming", "width": 1}, {"from": "Environmental information regulations", "to": "Pollution control", "width": 1}, {"from": "Ecology and geology", "to": "Conservation and sustainability", "width": 1}, {"from": "Grave purchasing", "to": "Funerals and cremations", "width": 1}, {"from": "Residential recycling collections", "to": "Recycling", "width": 1}, {"from": "Countryside rangers", "to": "Countryside and farming", "width": 1}, {"from": "Light pollution", "to": "Pollution control", "width": 1}, {"from": "Graffiti removal", "to": "Street care and cleaning", "width": 1}, {"from": "Litter enforcement", "to": "Street care and cleaning", "width": 1}, {"from": "RADAR keys for public toilets", "to": "Street care and cleaning", "width": 1}, {"from": "Outdoor play facilities", "to": "Parks and open spaces", "width": 1}, {"from": "Dog wardens", "to": "Animal welfare", "width": 1}, {"from": "Countryside surveys", "to": "Countryside and farming", "width": 1}, {"from": "Household waste collection", "to": "Household waste", "width": 1}, {"from": "Household waste enforcement", "to": "Household waste", "width": 1}, {"from": "Exhaust emission testing", "to": "Pollution control", "width": 1}, {"from": "Food safety inspections", "to": "Environmental health", "width": 1}, {"from": "Air quality", "to": "Pollution control", "width": 1}, {"from": "Noise pollution", "to": "Pollution control", "width": 1}, {"from": "Commercial  clinical waste disposal", "to": "Commercial waste", "width": 1}, {"from": "Flyposting", "to": "Street care and cleaning", "width": 1}, {"from": "Abandoned vehicles", "to": "Street care and cleaning", "width": 1}, {"from": "Animal by-products enforcement", "to": "Environmental health", "width": 1}, {"from": "Recycling bags and containers", "to": "Recycling", "width": 1}, {"from": "Contaminated land", "to": "Pollution control", "width": 1}, {"from": "Archaeological consultancy", "to": "Conservation and sustainability", "width": 1}, {"from": "Clinical household waste", "to": "Household waste", "width": 1}, {"from": "Recycling advice and initiatives", "to": "Recycling", "width": 1}, {"from": "Septic tanks and cesspits", "to": "Pollution control", "width": 1}, {"from": "Recycling sites", "to": "Recycling", "width": 1}, {"from": "Dog fouling", "to": "Street care and cleaning", "width": 1}, {"from": "Sustainable development", "to": "Conservation and sustainability", "width": 1}, {"from": "Archaeological excavations and surveys", "to": "Conservation and sustainability", "width": 1}, {"from": "Open access land", "to": "Countryside and farming", "width": 1}, {"from": "Dangerous dogs enforcement", "to": "Animal welfare", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste bins", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste collection", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste disposal sites", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste special collections", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste spillage", "width": 1}, {"from": "Commercial waste", "to": "Skip hire", "width": 1}, {"from": "Animal welfare", "to": "Environmental protection", "width": 1}, {"from": "Animal welfare", "to": "Animal welfare", "width": 1}, {"from": "Animal welfare", "to": "Dog registration", "width": 1}, {"from": "Animal welfare", "to": "Pet burial", "width": 1}, {"from": "Animal welfare", "to": "Stray animals", "width": 1}, {"from": "Grass cutting", "to": "Parks and open spaces", "width": 1}, {"from": "Independent funerals", "to": "Funerals and cremations", "width": 1}, {"from": "Flytipping", "to": "Street care and cleaning", "width": 1}, {"from": "Abandoned shopping trolleys", "to": "Street care and cleaning", "width": 1}, {"from": "Grazing land", "to": "Countryside and farming", "width": 1}, {"from": "Food poisoning and contamination", "to": "Environmental health", "width": 1}, {"from": "Mortuaries", "to": "Funerals and cremations", "width": 1}, {"from": "Countryside management", "to": "Countryside and farming", "width": 1}, {"from": "Gypsy and traveller sites", "to": "Parks and open spaces", "width": 1}, {"from": "Food safety enforcement", "to": "Environmental health", "width": 1}, {"from": "Household waste accumulation", "to": "Household waste", "width": 1}, {"from": "Farming advice", "to": "Countryside and farming", "width": 1}, {"from": "Local access forums", "to": "Conservation and sustainability", "width": 1}, {"from": "Litter bins", "to": "Street care and cleaning", "width": 1}, {"from": "Civil funerals", "to": "Funerals and cremations", "width": 1}, {"from": "Area waste strategy", "to": "Waste policy", "width": 1}, {"from": "Residential waste spillages", "to": "Household waste", "width": 1}, {"from": "Household garden waste", "to": "Household waste", "width": 1}, {"from": "Market cleaning", "to": "Street care and cleaning", "width": 1}, {"from": "Construction site pollution", "to": "Pollution control", "width": 1}, {"from": "Household waste disposal sites", "to": "Household waste", "width": 1}, {"from": "Litter removal", "to": "Street care and cleaning", "width": 1}, {"from": "Environmental protection", "to": "Conservation and sustainability", "width": 1}, {"from": "Environmental protection", "to": "Countryside and farming", "width": 1}, {"from": "Environmental protection", "to": "Environmental health", "width": 1}, {"from": "Environmental protection", "to": "Funerals and cremations", "width": 1}, {"from": "Environmental protection", "to": "Parks and open spaces", "width": 1}, {"from": "Environmental protection", "to": "Pollution control", "width": 1}, {"from": "Environmental protection", "to": "Recycling", "width": 1}, {"from": "Environmental protection", "to": "Street care and cleaning", "width": 1}, {"from": "Surface water management plans", "to": "Conservation and sustainability", "width": 1}, {"from": "Syringe disposal", "to": "Hazardous waste", "width": 1}, {"from": "Pollution control", "to": "Air handling units", "width": 1}, {"from": "Pollution control", "to": "Asbestos management", "width": 1}, {"from": "Pollution control", "to": "Clean Air Act approval", "width": 1}, {"from": "Pollution control", "to": "Smoke control areas", "width": 1}, {"from": "Pollution control", "to": "Statutory nuisances", "width": 1}, {"from": "Pollution control", "to": "Water pollution", "width": 1}, {"from": "Pollution control", "to": "Water quality monitoring", "width": 1}, {"from": "Pollution control", "to": "Geotechnology", "width": 1}, {"from": "Pollution control", "to": "Hazardous substance control", "width": 1}, {"from": "Countryside and farming", "to": "Community farms", "width": 1}, {"from": "Countryside and farming", "to": "Countryside education", "width": 1}, {"from": "Countryside and farming", "to": "Countryside facilities", "width": 1}, {"from": "Countryside and farming", "to": "Countryside visitor centres", "width": 1}, {"from": "Countryside and farming", "to": "Countryside volunteers", "width": 1}, {"from": "Countryside and farming", "to": "Nature reserves", "width": 1}, {"from": "Countryside and farming", "to": "Smallholdings", "width": 1}, {"from": "Cemeteries and crematoria", "to": "Funerals and cremations", "width": 1}, {"from": "Conservation and sustainability", "to": "Countryside conservation", "width": 1}, {"from": "Conservation and sustainability", "to": "Environmental policy", "width": 1}, {"from": "Conservation and sustainability", "to": "Landscape character assessment", "width": 1}, {"from": "Conservation and sustainability", "to": "Sustainable drainage systems", "width": 1}, {"from": "Conservation and sustainability", "to": "Waste reduction", "width": 1}, {"from": "Road spillages", "to": "Street care and cleaning", "width": 1}, {"from": "Street cleaning", "to": "Street care and cleaning", "width": 1}, {"from": "Funerals and cremations", "to": "Exhumations", "width": 1}, {"from": "Funerals and cremations", "to": "Memorial construction", "width": 1}, {"from": "Funerals and cremations", "to": "Municipal funerals", "width": 1}, {"from": "Funerals and cremations", "to": "Repatriation of bodies abroad", "width": 1}, {"from": "Funerals and cremations", "to": "Repatriation of bodies to England and Wales", "width": 1}, {"from": "Swimming pool and spa pool monitoring", "to": "Environmental health", "width": 1}, {"from": "Recycling of batteries", "to": "Recycling", "width": 1}, {"from": "Bulky household waste collections", "to": "Household waste", "width": 1}, {"from": "Waste policy", "to": "Refuse duty of care enforcement", "width": 1}, {"from": "Public toilets", "to": "Street care and cleaning", "width": 1}, {"from": "Hazardous waste collection", "to": "Hazardous waste", "width": 1}, {"from": "Composters", "to": "Recycling", "width": 1}, {"from": "Household waste", "to": "Household waste assisted collection", "width": 1}, {"from": "Household waste", "to": "Household waste containers", "width": 1}, {"from": "Dog  waste bins", "to": "Street care and cleaning", "width": 1}, {"from": "Scientific services", "to": "Environmental health", "width": 1}, {"from": "Food waste recycling", "to": "Recycling", "width": 1}, {"from": "Environmental health", "to": "Pest control", "width": 1}, {"from": "Environmental health", "to": "Smoking ban", "width": 1}, {"from": "Common land and village greens", "to": "Parks and open spaces", "width": 1}, {"from": "Dead animal removal", "to": "Street care and cleaning", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open space maintenance and landscaping", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open spaces", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open space landscaping", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,1093 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/css/tom-select.min.css" integrity="sha512-43fHB3GLgZfz8QXl1RPQ8O66oIgv3po9cJ5erMt1c4QISq9dYb195T3vr5ImnJPXuVroKcGBPXBFKETW8jrPNQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/tom-select/2.0.0-rc.4/js/tom-select.complete.js" integrity="sha512-jeF9CfnvzDiw9G9xiksVjxR2lib44Gnovvkv+3CgCG6NXCD4gqlA5nDAVW5WjpA+i+/zKsUWV5xNEbW1X/HH0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 600px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+             #loadingBar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width: 100%;
+                 height: 600px;
+                 background-color:rgba(200,200,200,0.8);
+                 -webkit-transition: all 0.5s ease;
+                 -moz-transition: all 0.5s ease;
+                 -ms-transition: all 0.5s ease;
+                 -o-transition: all 0.5s ease;
+                 transition: all 0.5s ease;
+                 opacity:1;
+             }
+
+             #bar {
+                 position:absolute;
+                 top:0px;
+                 left:0px;
+                 width:20px;
+                 height:20px;
+                 margin:auto auto auto auto;
+                 border-radius:11px;
+                 border:2px solid rgba(30,30,30,0.05);
+                 background: rgb(0, 173, 246); /* Old browsers */
+                 box-shadow: 2px 0px 4px rgba(0,0,0,0.4);
+             }
+
+             #border {
+                 position:absolute;
+                 top:10px;
+                 left:10px;
+                 width:500px;
+                 height:23px;
+                 margin:auto auto auto auto;
+                 box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
+                 border-radius:10px;
+             }
+
+             #text {
+                 position:absolute;
+                 top:8px;
+                 left:530px;
+                 width:30px;
+                 height:50px;
+                 margin:auto auto auto auto;
+                 font-size:22px;
+                 color: #000000;
+             }
+
+             div.outerBorder {
+                 position:relative;
+                 top:400px;
+                 width:600px;
+                 height:44px;
+                 margin:auto auto auto auto;
+                 border:8px solid rgba(0,0,0,0.1);
+                 background: rgb(252,252,252); /* Old browsers */
+                 background: -moz-linear-gradient(top,  rgba(252,252,252,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+                 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+                 background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+                 background: -o-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+                 background: -ms-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+                 background: linear-gradient(to bottom,  rgba(252,252,252,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+                 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+                 border-radius:72px;
+                 box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+             }
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+                <div id="select-menu" class="card-header">
+                    <div class="row no-gutters">
+                        <div class="col-10 pb-2">
+                            <select
+                            class="form-select"
+                            aria-label="Default select example"
+                            onchange="selectNode([value]);"
+                            id="select-node"
+                            placeholder="Select node..."
+                            >
+                                <option selected>Select a Node by ID</option>
+                                
+                                    <option value="Environmental health emergencies out of hours">Environmental health emergencies out of hours</option>
+                                
+                                    <option value="Environmental health">Environmental health</option>
+                                
+                                    <option value="Private hire drivers licence">Private hire drivers licence</option>
+                                
+                                    <option value="Taxi and private hire">Taxi and private hire</option>
+                                
+                                    <option value="Tree management">Tree management</option>
+                                
+                                    <option value="Planning services">Planning services</option>
+                                
+                                    <option value="Ecology and geology">Ecology and geology</option>
+                                
+                                    <option value="Conservation and sustainability">Conservation and sustainability</option>
+                                
+                                    <option value="Grave purchasing">Grave purchasing</option>
+                                
+                                    <option value="Funerals and cremations">Funerals and cremations</option>
+                                
+                                    <option value="Pollution control - Part A(2) and Part B processes">Pollution control - Part A(2) and Part B processes</option>
+                                
+                                    <option value="Building and construction">Building and construction</option>
+                                
+                                    <option value="Light pollution">Light pollution</option>
+                                
+                                    <option value="Pollution control">Pollution control</option>
+                                
+                                    <option value="Family entertainment centre gaming machine permits">Family entertainment centre gaming machine permits</option>
+                                
+                                    <option value="Gambling and lottery">Gambling and lottery</option>
+                                
+                                    <option value="Litter enforcement">Litter enforcement</option>
+                                
+                                    <option value="Street care and cleaning">Street care and cleaning</option>
+                                
+                                    <option value="Countryside surveys">Countryside surveys</option>
+                                
+                                    <option value="Countryside and farming">Countryside and farming</option>
+                                
+                                    <option value="Household waste collection">Household waste collection</option>
+                                
+                                    <option value="Household waste">Household waste</option>
+                                
+                                    <option value="Local markets">Local markets</option>
+                                
+                                    <option value="Markets">Markets</option>
+                                
+                                    <option value="Gambling premises temporary use notices">Gambling premises temporary use notices</option>
+                                
+                                    <option value="Air quality">Air quality</option>
+                                
+                                    <option value="Commercial  clinical waste disposal">Commercial  clinical waste disposal</option>
+                                
+                                    <option value="Commercial waste">Commercial waste</option>
+                                
+                                    <option value="Flyposting">Flyposting</option>
+                                
+                                    <option value="Archaeological consultancy">Archaeological consultancy</option>
+                                
+                                    <option value="Recycling advice and initiatives">Recycling advice and initiatives</option>
+                                
+                                    <option value="Recycling">Recycling</option>
+                                
+                                    <option value="Stage hypnotism licence">Stage hypnotism licence</option>
+                                
+                                    <option value="Alcohol and entertainment">Alcohol and entertainment</option>
+                                
+                                    <option value="Septic tanks and cesspits">Septic tanks and cesspits</option>
+                                
+                                    <option value="Street collection licence">Street collection licence</option>
+                                
+                                    <option value="Businesses">Businesses</option>
+                                
+                                    <option value="Grass cutting">Grass cutting</option>
+                                
+                                    <option value="Parks and open spaces">Parks and open spaces</option>
+                                
+                                    <option value="Sports grounds safety certificate">Sports grounds safety certificate</option>
+                                
+                                    <option value="Grazing land">Grazing land</option>
+                                
+                                    <option value="Food poisoning and contamination">Food poisoning and contamination</option>
+                                
+                                    <option value="Countryside management">Countryside management</option>
+                                
+                                    <option value="Food safety enforcement">Food safety enforcement</option>
+                                
+                                    <option value="Building materials licence">Building materials licence</option>
+                                
+                                    <option value="Club premises certificate">Club premises certificate</option>
+                                
+                                    <option value="Conservation area planning">Conservation area planning</option>
+                                
+                                    <option value="Sheep and goat movement licence">Sheep and goat movement licence</option>
+                                
+                                    <option value="Animals">Animals</option>
+                                
+                                    <option value="Planning and building control">Planning and building control</option>
+                                
+                                    <option value="Building control">Building control</option>
+                                
+                                    <option value="Development control">Development control</option>
+                                
+                                    <option value="Planning policy">Planning policy</option>
+                                
+                                    <option value="Commercial waste bins">Commercial waste bins</option>
+                                
+                                    <option value="Prize gaming permit">Prize gaming permit</option>
+                                
+                                    <option value="Property enquiries certificates">Property enquiries certificates</option>
+                                
+                                    <option value="Household garden waste">Household garden waste</option>
+                                
+                                    <option value="Planning pre-application advice">Planning pre-application advice</option>
+                                
+                                    <option value="Clean Air Act approval">Clean Air Act approval</option>
+                                
+                                    <option value="Public toilets">Public toilets</option>
+                                
+                                    <option value="Planning minor material amendments">Planning minor material amendments</option>
+                                
+                                    <option value="Land use proposals">Land use proposals</option>
+                                
+                                    <option value="Hazardous waste collection">Hazardous waste collection</option>
+                                
+                                    <option value="Hazardous waste">Hazardous waste</option>
+                                
+                                    <option value="Household waste assisted collection">Household waste assisted collection</option>
+                                
+                                    <option value="Dog  waste bins">Dog  waste bins</option>
+                                
+                                    <option value="Scientific services">Scientific services</option>
+                                
+                                    <option value="Household waste containers">Household waste containers</option>
+                                
+                                    <option value="Nature reserves">Nature reserves</option>
+                                
+                                    <option value="Selective area housing licences">Selective area housing licences</option>
+                                
+                                    <option value="Licensed premises gaming machine permit">Licensed premises gaming machine permit</option>
+                                
+                                    <option value="Dog breeding licence">Dog breeding licence</option>
+                                
+                                    <option value="Skip permits">Skip permits</option>
+                                
+                                    <option value="Permissions and consents">Permissions and consents</option>
+                                
+                                    <option value="Licences, permits and permissions">Licences, permits and permissions</option>
+                                
+                                    <option value="Consent for cellars, pavement lights and ventilators under street">Consent for cellars, pavement lights and ventilators under street</option>
+                                
+                                    <option value="Leaflet distribution consent">Leaflet distribution consent</option>
+                                
+                                    <option value="Permission to film and photograph">Permission to film and photograph</option>
+                                
+                                    <option value="Permission to host events">Permission to host events</option>
+                                
+                                    <option value="Street parties permission">Street parties permission</option>
+                                
+                                    <option value="Verges permitted use">Verges permitted use</option>
+                                
+                                    <option value="Pig movement notification">Pig movement notification</option>
+                                
+                                    <option value="Common land and village greens">Common land and village greens</option>
+                                
+                                    <option value="Land charges search">Land charges search</option>
+                                
+                                    <option value="Smoking ban">Smoking ban</option>
+                                
+                                    <option value="Track gambling premises occasional use notices">Track gambling premises occasional use notices</option>
+                                
+                                    <option value="Environmental protection">Environmental protection</option>
+                                
+                                    <option value="Gypsy and traveller sites">Gypsy and traveller sites</option>
+                                
+                                    <option value="Outdoor play facilities">Outdoor play facilities</option>
+                                
+                                    <option value="Parks and open space maintenance and landscaping">Parks and open space maintenance and landscaping</option>
+                                
+                                    <option value="Parks and open space landscaping">Parks and open space landscaping</option>
+                                
+                                    <option value="Commercial waste disposal sites">Commercial waste disposal sites</option>
+                                
+                                    <option value="Register of land">Register of land</option>
+                                
+                                    <option value="Commercial waste special collections">Commercial waste special collections</option>
+                                
+                                    <option value="Solvent emissions regulation">Solvent emissions regulation</option>
+                                
+                                    <option value="Pest control">Pest control</option>
+                                
+                                    <option value="Lawful Development Certificate proposed use">Lawful Development Certificate proposed use</option>
+                                
+                                    <option value="Tree preservation orders">Tree preservation orders</option>
+                                
+                                    <option value="Street works licence">Street works licence</option>
+                                
+                                    <option value="Roads and streets">Roads and streets</option>
+                                
+                                    <option value="Moveable dwelling site licence">Moveable dwelling site licence</option>
+                                
+                                    <option value="Boarding animals licence">Boarding animals licence</option>
+                                
+                                    <option value="Exhumations">Exhumations</option>
+                                
+                                    <option value="Hackney carriage (taxi) drivers licence">Hackney carriage (taxi) drivers licence</option>
+                                
+                                    <option value="Hazardous substance control">Hazardous substance control</option>
+                                
+                                    <option value="Transport">Transport</option>
+                                
+                                    <option value="Dual drivers licence">Dual drivers licence</option>
+                                
+                                    <option value="Hackney carriage (taxi) licence">Hackney carriage (taxi) licence</option>
+                                
+                                    <option value="Private hire operators licence">Private hire operators licence</option>
+                                
+                                    <option value="Private hire vehicle (minicab) licence">Private hire vehicle (minicab) licence</option>
+                                
+                                    <option value="Taxi fare setting">Taxi fare setting</option>
+                                
+                                    <option value="Voluntary sector transport licence">Voluntary sector transport licence</option>
+                                
+                                    <option value="Sex establishment licence">Sex establishment licence</option>
+                                
+                                    <option value="Club machine permit">Club machine permit</option>
+                                
+                                    <option value="Petroleum storage licence">Petroleum storage licence</option>
+                                
+                                    <option value="Hazardous materials">Hazardous materials</option>
+                                
+                                    <option value="Statutory development plans">Statutory development plans</option>
+                                
+                                    <option value="Planning reserved matters">Planning reserved matters</option>
+                                
+                                    <option value="Noise pollution">Noise pollution</option>
+                                
+                                    <option value="Abandoned vehicles">Abandoned vehicles</option>
+                                
+                                    <option value="Animal by-products enforcement">Animal by-products enforcement</option>
+                                
+                                    <option value="Water activities">Water activities</option>
+                                
+                                    <option value="Boatman's licence">Boatman's licence</option>
+                                
+                                    <option value="Pleasure boat licence">Pleasure boat licence</option>
+                                
+                                    <option value="Self drive boats licence">Self drive boats licence</option>
+                                
+                                    <option value="Recycling bags and containers">Recycling bags and containers</option>
+                                
+                                    <option value="Clinical household waste">Clinical household waste</option>
+                                
+                                    <option value="Derelict properties">Derelict properties</option>
+                                
+                                    <option value="Allotments">Allotments</option>
+                                
+                                    <option value="Dog fouling">Dog fouling</option>
+                                
+                                    <option value="Open access land">Open access land</option>
+                                
+                                    <option value="Dangerous dogs enforcement">Dangerous dogs enforcement</option>
+                                
+                                    <option value="Animal welfare">Animal welfare</option>
+                                
+                                    <option value="Dog registration">Dog registration</option>
+                                
+                                    <option value="Dog wardens">Dog wardens</option>
+                                
+                                    <option value="Pet burial">Pet burial</option>
+                                
+                                    <option value="Stray animals">Stray animals</option>
+                                
+                                    <option value="Farmers markets">Farmers markets</option>
+                                
+                                    <option value="Petroleum storage licence/certificate">Petroleum storage licence/certificate</option>
+                                
+                                    <option value="Homes in multiple occupancy licence">Homes in multiple occupancy licence</option>
+                                
+                                    <option value="Independent funerals">Independent funerals</option>
+                                
+                                    <option value="Planning non-material amendments">Planning non-material amendments</option>
+                                
+                                    <option value="Household waste accumulation">Household waste accumulation</option>
+                                
+                                    <option value="Farming advice">Farming advice</option>
+                                
+                                    <option value="Local access forums">Local access forums</option>
+                                
+                                    <option value="Area waste strategy">Area waste strategy</option>
+                                
+                                    <option value="Waste policy">Waste policy</option>
+                                
+                                    <option value="Conservation area tree works notification">Conservation area tree works notification</option>
+                                
+                                    <option value="Food safety advice">Food safety advice</option>
+                                
+                                    <option value="Food">Food</option>
+                                
+                                    <option value="Construction site pollution">Construction site pollution</option>
+                                
+                                    <option value="Litter removal">Litter removal</option>
+                                
+                                    <option value="Waste management">Waste management</option>
+                                
+                                    <option value="Surface water management plans">Surface water management plans</option>
+                                
+                                    <option value="Syringe disposal">Syringe disposal</option>
+                                
+                                    <option value="Cemeteries and crematoria">Cemeteries and crematoria</option>
+                                
+                                    <option value="Land and property availability">Land and property availability</option>
+                                
+                                    <option value="Firework safety advice">Firework safety advice</option>
+                                
+                                    <option value="Poisons licence">Poisons licence</option>
+                                
+                                    <option value="Street cleaning">Street cleaning</option>
+                                
+                                    <option value="Sunday trading notification">Sunday trading notification</option>
+                                
+                                    <option value="Abnormal load notification">Abnormal load notification</option>
+                                
+                                    <option value="Highway projection licence">Highway projection licence</option>
+                                
+                                    <option value="Weighbridge operator licence">Weighbridge operator licence</option>
+                                
+                                    <option value="Workplace parking levy">Workplace parking levy</option>
+                                
+                                    <option value="Bulky household waste collections">Bulky household waste collections</option>
+                                
+                                    <option value="Dangerous structures">Dangerous structures</option>
+                                
+                                    <option value="Memorial construction">Memorial construction</option>
+                                
+                                    <option value="Building control enforcement">Building control enforcement</option>
+                                
+                                    <option value="Domestic heating oil tanks">Domestic heating oil tanks</option>
+                                
+                                    <option value="Demolition control">Demolition control</option>
+                                
+                                    <option value="Household waste disposal sites">Household waste disposal sites</option>
+                                
+                                    <option value="Household waste enforcement">Household waste enforcement</option>
+                                
+                                    <option value="Residential waste spillages">Residential waste spillages</option>
+                                
+                                    <option value="Statutory nuisances">Statutory nuisances</option>
+                                
+                                    <option value="Smallholdings">Smallholdings</option>
+                                
+                                    <option value="Tattooist, piercing and electrolysis registration">Tattooist, piercing and electrolysis registration</option>
+                                
+                                    <option value="Building and landscape design">Building and landscape design</option>
+                                
+                                    <option value="Conservation areas">Conservation areas</option>
+                                
+                                    <option value="Local Development Framework">Local Development Framework</option>
+                                
+                                    <option value="Local plans">Local plans</option>
+                                
+                                    <option value="Minerals local plan">Minerals local plan</option>
+                                
+                                    <option value="Neighbourhood planning">Neighbourhood planning</option>
+                                
+                                    <option value="Spatial development strategy">Spatial development strategy</option>
+                                
+                                    <option value="Transport policy">Transport policy</option>
+                                
+                                    <option value="Zoning">Zoning</option>
+                                
+                                    <option value="Community infrastructure levy (CIL)">Community infrastructure levy (CIL)</option>
+                                
+                                    <option value="Performing animals licence">Performing animals licence</option>
+                                
+                                    <option value="Food waste recycling">Food waste recycling</option>
+                                
+                                    <option value="Landscape character assessment">Landscape character assessment</option>
+                                
+                                    <option value="Development control enforcement">Development control enforcement</option>
+                                
+                                    <option value="Countryside conservation">Countryside conservation</option>
+                                
+                                    <option value="Street names and numbering">Street names and numbering</option>
+                                
+                                    <option value="Licence for bridges, buildings, beams and cables over or along highway">Licence for bridges, buildings, beams and cables over or along highway</option>
+                                
+                                    <option value="Lottery licence">Lottery licence</option>
+                                
+                                    <option value="Water quality monitoring">Water quality monitoring</option>
+                                
+                                    <option value="Demolition enforcement">Demolition enforcement</option>
+                                
+                                    <option value="Demolitions - property assessment">Demolitions - property assessment</option>
+                                
+                                    <option value="Dropped kerbs">Dropped kerbs</option>
+                                
+                                    <option value="High hedges">High hedges</option>
+                                
+                                    <option value="Listed building consent">Listed building consent</option>
+                                
+                                    <option value="Property register">Property register</option>
+                                
+                                    <option value="Countryside education">Countryside education</option>
+                                
+                                    <option value="Highway planting licence">Highway planting licence</option>
+                                
+                                    <option value="Waste reduction">Waste reduction</option>
+                                
+                                    <option value="Forest and woodland management">Forest and woodland management</option>
+                                
+                                    <option value="Field study centres">Field study centres</option>
+                                
+                                    <option value="Environmental information regulations">Environmental information regulations</option>
+                                
+                                    <option value="Scaffolding and hoarding licence">Scaffolding and hoarding licence</option>
+                                
+                                    <option value="Selective housing areas">Selective housing areas</option>
+                                
+                                    <option value="House to house collection licence">House to house collection licence</option>
+                                
+                                    <option value="Second hand dealer registration">Second hand dealer registration</option>
+                                
+                                    <option value="Exhaust emission testing">Exhaust emission testing</option>
+                                
+                                    <option value="Food premises approval">Food premises approval</option>
+                                
+                                    <option value="Acupuncturist registration">Acupuncturist registration</option>
+                                
+                                    <option value="Recycling sites">Recycling sites</option>
+                                
+                                    <option value="Child performance licences">Child performance licences</option>
+                                
+                                    <option value="Civil marriage and civil partnership venue licence">Civil marriage and civil partnership venue licence</option>
+                                
+                                    <option value="Early morning restrictions orders">Early morning restrictions orders</option>
+                                
+                                    <option value="Greyhound racing track licence">Greyhound racing track licence</option>
+                                
+                                    <option value="Personal alcohol and entertainment licence">Personal alcohol and entertainment licence</option>
+                                
+                                    <option value="Premises licence">Premises licence</option>
+                                
+                                    <option value="Sports stands safety certificate">Sports stands safety certificate</option>
+                                
+                                    <option value="Temporary event notice">Temporary event notice</option>
+                                
+                                    <option value="Wedding venue licence">Wedding venue licence</option>
+                                
+                                    <option value="Children's certificate">Children's certificate</option>
+                                
+                                    <option value="Sustainable development">Sustainable development</option>
+                                
+                                    <option value="Archaeological excavations and surveys">Archaeological excavations and surveys</option>
+                                
+                                    <option value="Late night catering licence">Late night catering licence</option>
+                                
+                                    <option value="Flytipping">Flytipping</option>
+                                
+                                    <option value="Brownfield land register">Brownfield land register</option>
+                                
+                                    <option value="Litter bins">Litter bins</option>
+                                
+                                    <option value="Dangerous animals licence">Dangerous animals licence</option>
+                                
+                                    <option value="Pet shop licence">Pet shop licence</option>
+                                
+                                    <option value="Riding establishment licence">Riding establishment licence</option>
+                                
+                                    <option value="Zoo licence">Zoo licence</option>
+                                
+                                    <option value="Market cleaning">Market cleaning</option>
+                                
+                                    <option value="Track betting licence">Track betting licence</option>
+                                
+                                    <option value="Air handling units">Air handling units</option>
+                                
+                                    <option value="Asbestos management">Asbestos management</option>
+                                
+                                    <option value="Contaminated land">Contaminated land</option>
+                                
+                                    <option value="Idling vehicles">Idling vehicles</option>
+                                
+                                    <option value="Private water supply analysis">Private water supply analysis</option>
+                                
+                                    <option value="Smoke control areas">Smoke control areas</option>
+                                
+                                    <option value="Water pollution">Water pollution</option>
+                                
+                                    <option value="Geotechnology">Geotechnology</option>
+                                
+                                    <option value="Auction premises licence">Auction premises licence</option>
+                                
+                                    <option value="Environmental policy">Environmental policy</option>
+                                
+                                    <option value="Sustainable drainage systems">Sustainable drainage systems</option>
+                                
+                                    <option value="Civil funerals">Civil funerals</option>
+                                
+                                    <option value="Mortuaries">Mortuaries</option>
+                                
+                                    <option value="Municipal funerals">Municipal funerals</option>
+                                
+                                    <option value="Repatriation of bodies abroad">Repatriation of bodies abroad</option>
+                                
+                                    <option value="Repatriation of bodies to England and Wales">Repatriation of bodies to England and Wales</option>
+                                
+                                    <option value="Swimming pool and spa pool monitoring">Swimming pool and spa pool monitoring</option>
+                                
+                                    <option value="Skip hire">Skip hire</option>
+                                
+                                    <option value="Street trading licence">Street trading licence</option>
+                                
+                                    <option value="Composters">Composters</option>
+                                
+                                    <option value="Petrol vapour recovery regulation">Petrol vapour recovery regulation</option>
+                                
+                                    <option value="Refuse duty of care enforcement">Refuse duty of care enforcement</option>
+                                
+                                    <option value="Environmental Impact Assessment screening">Environmental Impact Assessment screening</option>
+                                
+                                    <option value="Countryside facilities">Countryside facilities</option>
+                                
+                                    <option value="Dry cleaning permit">Dry cleaning permit</option>
+                                
+                                    <option value="Businesses and markets">Businesses and markets</option>
+                                
+                                    <option value="Market event licence">Market event licence</option>
+                                
+                                    <option value="Market stall rental">Market stall rental</option>
+                                
+                                    <option value="Massage and special treatment licence">Massage and special treatment licence</option>
+                                
+                                    <option value="Gambling premises licence">Gambling premises licence</option>
+                                
+                                    <option value="Neighbourhood development order">Neighbourhood development order</option>
+                                
+                                    <option value="Illegal street trading">Illegal street trading</option>
+                                
+                                    <option value="Dead animal removal">Dead animal removal</option>
+                                
+                                    <option value="Registering business premises">Registering business premises</option>
+                                
+                                    <option value="Commercial waste spillage">Commercial waste spillage</option>
+                                
+                                    <option value="Advertisement control">Advertisement control</option>
+                                
+                                    <option value="Discharge of planning conditions">Discharge of planning conditions</option>
+                                
+                                    <option value="Full planning applications">Full planning applications</option>
+                                
+                                    <option value="Lawful Development Certificate existing use">Lawful Development Certificate existing use</option>
+                                
+                                    <option value="Local development order">Local development order</option>
+                                
+                                    <option value="Outline planning consent">Outline planning consent</option>
+                                
+                                    <option value="Planning area search">Planning area search</option>
+                                
+                                    <option value="Planning consultation">Planning consultation</option>
+                                
+                                    <option value="Planning decision notices">Planning decision notices</option>
+                                
+                                    <option value="Planning obligations">Planning obligations</option>
+                                
+                                    <option value="Prior notification of development">Prior notification of development</option>
+                                
+                                    <option value="Removal/variation of planning conditions">Removal/variation of planning conditions</option>
+                                
+                                    <option value="Residential planning applications">Residential planning applications</option>
+                                
+                                    <option value="Self-build and custom build register">Self-build and custom build register</option>
+                                
+                                    <option value="Residential recycling collections">Residential recycling collections</option>
+                                
+                                    <option value="Countryside rangers">Countryside rangers</option>
+                                
+                                    <option value="Graffiti removal">Graffiti removal</option>
+                                
+                                    <option value="RADAR keys for public toilets">RADAR keys for public toilets</option>
+                                
+                                    <option value="Food safety inspections">Food safety inspections</option>
+                                
+                                    <option value="Commercial waste collection">Commercial waste collection</option>
+                                
+                                    <option value="Abandoned shopping trolleys">Abandoned shopping trolleys</option>
+                                
+                                    <option value="Club gaming permit">Club gaming permit</option>
+                                
+                                    <option value="Caravan site licence">Caravan site licence</option>
+                                
+                                    <option value="Community farms">Community farms</option>
+                                
+                                    <option value="Countryside visitor centres">Countryside visitor centres</option>
+                                
+                                    <option value="Countryside volunteers">Countryside volunteers</option>
+                                
+                                    <option value="Road spillages">Road spillages</option>
+                                
+                                    <option value="Recycling of batteries">Recycling of batteries</option>
+                                
+                                    <option value="Street cafŽ licence">Street cafŽ licence</option>
+                                
+                                    <option value="Massage and special treatments therapist registration">Massage and special treatments therapist registration</option>
+                                
+                                    <option value="Food business registration">Food business registration</option>
+                                
+                                    <option value="Scrap metal site registration">Scrap metal site registration</option>
+                                
+                                    <option value="Motor salvage operator registration">Motor salvage operator registration</option>
+                                
+                                    <option value="Cooling tower registration">Cooling tower registration</option>
+                                
+                                    <option value="Skip operator licence">Skip operator licence</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-2 pb-2">
+                            <button type="button" class="btn btn-primary btn-block" onclick="neighbourhoodHighlight({nodes: []});">Reset Selection</button>
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+            <div id="loadingBar">
+              <div class="outerBorder">
+                <div id="text">0%</div>
+                <div id="border">
+                  <div id="bar"></div>
+                </div>
+              </div>
+            </div>
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+                  new TomSelect("#select-node",{
+                      create: false,
+                      sortField: {
+                          field: "text",
+                          direction: "asc"
+                      }
+                  });
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental health emergencies out of hours", "label": "Environmental health emergencies out of hours", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental health", "label": "Environmental health", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire drivers licence", "label": "Private hire drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Taxi and private hire", "label": "Taxi and private hire", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tree management", "label": "Tree management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning services", "label": "Planning services", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Ecology and geology", "label": "Ecology and geology", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation and sustainability", "label": "Conservation and sustainability", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grave purchasing", "label": "Grave purchasing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Funerals and cremations", "label": "Funerals and cremations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pollution control - Part A(2) and Part B processes", "label": "Pollution control - Part A(2) and Part B processes", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building and construction", "label": "Building and construction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Light pollution", "label": "Light pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pollution control", "label": "Pollution control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Family entertainment centre gaming machine permits", "label": "Family entertainment centre gaming machine permits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling and lottery", "label": "Gambling and lottery", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter enforcement", "label": "Litter enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street care and cleaning", "label": "Street care and cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside surveys", "label": "Countryside surveys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside and farming", "label": "Countryside and farming", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste collection", "label": "Household waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste", "label": "Household waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local markets", "label": "Local markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Markets", "label": "Markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling premises temporary use notices", "label": "Gambling premises temporary use notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Air quality", "label": "Air quality", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial  clinical waste disposal", "label": "Commercial  clinical waste disposal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste", "label": "Commercial waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Flyposting", "label": "Flyposting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Archaeological consultancy", "label": "Archaeological consultancy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling advice and initiatives", "label": "Recycling advice and initiatives", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling", "label": "Recycling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Stage hypnotism licence", "label": "Stage hypnotism licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Alcohol and entertainment", "label": "Alcohol and entertainment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Septic tanks and cesspits", "label": "Septic tanks and cesspits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street collection licence", "label": "Street collection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Businesses", "label": "Businesses", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grass cutting", "label": "Grass cutting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open spaces", "label": "Parks and open spaces", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sports grounds safety certificate", "label": "Sports grounds safety certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Grazing land", "label": "Grazing land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food poisoning and contamination", "label": "Food poisoning and contamination", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside management", "label": "Countryside management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety enforcement", "label": "Food safety enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building materials licence", "label": "Building materials licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club premises certificate", "label": "Club premises certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation area planning", "label": "Conservation area planning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sheep and goat movement licence", "label": "Sheep and goat movement licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animals", "label": "Animals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning and building control", "label": "Planning and building control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building control", "label": "Building control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Development control", "label": "Development control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning policy", "label": "Planning policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste bins", "label": "Commercial waste bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Prize gaming permit", "label": "Prize gaming permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Property enquiries certificates", "label": "Property enquiries certificates", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household garden waste", "label": "Household garden waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning pre-application advice", "label": "Planning pre-application advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Clean Air Act approval", "label": "Clean Air Act approval", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Public toilets", "label": "Public toilets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning minor material amendments", "label": "Planning minor material amendments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land use proposals", "label": "Land use proposals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous waste collection", "label": "Hazardous waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous waste", "label": "Hazardous waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste assisted collection", "label": "Household waste assisted collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog  waste bins", "label": "Dog  waste bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scientific services", "label": "Scientific services", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste containers", "label": "Household waste containers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Nature reserves", "label": "Nature reserves", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Selective area housing licences", "label": "Selective area housing licences", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licensed premises gaming machine permit", "label": "Licensed premises gaming machine permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog breeding licence", "label": "Dog breeding licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip permits", "label": "Skip permits", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permissions and consents", "label": "Permissions and consents", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licences, permits and permissions", "label": "Licences, permits and permissions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Consent for cellars, pavement lights and ventilators under street", "label": "Consent for cellars, pavement lights and ventilators under street", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Leaflet distribution consent", "label": "Leaflet distribution consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permission to film and photograph", "label": "Permission to film and photograph", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Permission to host events", "label": "Permission to host events", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street parties permission", "label": "Street parties permission", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Verges permitted use", "label": "Verges permitted use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pig movement notification", "label": "Pig movement notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Common land and village greens", "label": "Common land and village greens", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land charges search", "label": "Land charges search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smoking ban", "label": "Smoking ban", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Track gambling premises occasional use notices", "label": "Track gambling premises occasional use notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental protection", "label": "Environmental protection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gypsy and traveller sites", "label": "Gypsy and traveller sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Outdoor play facilities", "label": "Outdoor play facilities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open space maintenance and landscaping", "label": "Parks and open space maintenance and landscaping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Parks and open space landscaping", "label": "Parks and open space landscaping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste disposal sites", "label": "Commercial waste disposal sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Register of land", "label": "Register of land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste special collections", "label": "Commercial waste special collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Solvent emissions regulation", "label": "Solvent emissions regulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pest control", "label": "Pest control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lawful Development Certificate proposed use", "label": "Lawful Development Certificate proposed use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tree preservation orders", "label": "Tree preservation orders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street works licence", "label": "Street works licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Roads and streets", "label": "Roads and streets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Moveable dwelling site licence", "label": "Moveable dwelling site licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Boarding animals licence", "label": "Boarding animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Exhumations", "label": "Exhumations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hackney carriage (taxi) drivers licence", "label": "Hackney carriage (taxi) drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous substance control", "label": "Hazardous substance control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Transport", "label": "Transport", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dual drivers licence", "label": "Dual drivers licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hackney carriage (taxi) licence", "label": "Hackney carriage (taxi) licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire operators licence", "label": "Private hire operators licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private hire vehicle (minicab) licence", "label": "Private hire vehicle (minicab) licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Taxi fare setting", "label": "Taxi fare setting", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Voluntary sector transport licence", "label": "Voluntary sector transport licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sex establishment licence", "label": "Sex establishment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club machine permit", "label": "Club machine permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petroleum storage licence", "label": "Petroleum storage licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Hazardous materials", "label": "Hazardous materials", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Statutory development plans", "label": "Statutory development plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning reserved matters", "label": "Planning reserved matters", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Noise pollution", "label": "Noise pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abandoned vehicles", "label": "Abandoned vehicles", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animal by-products enforcement", "label": "Animal by-products enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water activities", "label": "Water activities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Boatman\u0027s licence", "label": "Boatman\u0027s licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pleasure boat licence", "label": "Pleasure boat licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Self drive boats licence", "label": "Self drive boats licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling bags and containers", "label": "Recycling bags and containers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Clinical household waste", "label": "Clinical household waste", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Derelict properties", "label": "Derelict properties", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Allotments", "label": "Allotments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog fouling", "label": "Dog fouling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Open access land", "label": "Open access land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous dogs enforcement", "label": "Dangerous dogs enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Animal welfare", "label": "Animal welfare", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog registration", "label": "Dog registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dog wardens", "label": "Dog wardens", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pet burial", "label": "Pet burial", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Stray animals", "label": "Stray animals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Farmers markets", "label": "Farmers markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petroleum storage licence/certificate", "label": "Petroleum storage licence/certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Homes in multiple occupancy licence", "label": "Homes in multiple occupancy licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Independent funerals", "label": "Independent funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning non-material amendments", "label": "Planning non-material amendments", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste accumulation", "label": "Household waste accumulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Farming advice", "label": "Farming advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local access forums", "label": "Local access forums", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Area waste strategy", "label": "Area waste strategy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste policy", "label": "Waste policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation area tree works notification", "label": "Conservation area tree works notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety advice", "label": "Food safety advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food", "label": "Food", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Construction site pollution", "label": "Construction site pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter removal", "label": "Litter removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste management", "label": "Waste management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Surface water management plans", "label": "Surface water management plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Syringe disposal", "label": "Syringe disposal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cemeteries and crematoria", "label": "Cemeteries and crematoria", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Land and property availability", "label": "Land and property availability", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Firework safety advice", "label": "Firework safety advice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Poisons licence", "label": "Poisons licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street cleaning", "label": "Street cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sunday trading notification", "label": "Sunday trading notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abnormal load notification", "label": "Abnormal load notification", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Highway projection licence", "label": "Highway projection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Weighbridge operator licence", "label": "Weighbridge operator licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Workplace parking levy", "label": "Workplace parking levy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Bulky household waste collections", "label": "Bulky household waste collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous structures", "label": "Dangerous structures", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Memorial construction", "label": "Memorial construction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building control enforcement", "label": "Building control enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Domestic heating oil tanks", "label": "Domestic heating oil tanks", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolition control", "label": "Demolition control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste disposal sites", "label": "Household waste disposal sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Household waste enforcement", "label": "Household waste enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential waste spillages", "label": "Residential waste spillages", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Statutory nuisances", "label": "Statutory nuisances", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smallholdings", "label": "Smallholdings", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Tattooist, piercing and electrolysis registration", "label": "Tattooist, piercing and electrolysis registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Building and landscape design", "label": "Building and landscape design", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Conservation areas", "label": "Conservation areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local Development Framework", "label": "Local Development Framework", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local plans", "label": "Local plans", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Minerals local plan", "label": "Minerals local plan", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Neighbourhood planning", "label": "Neighbourhood planning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Spatial development strategy", "label": "Spatial development strategy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Transport policy", "label": "Transport policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Zoning", "label": "Zoning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Community infrastructure levy (CIL)", "label": "Community infrastructure levy (CIL)", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Performing animals licence", "label": "Performing animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food waste recycling", "label": "Food waste recycling", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Landscape character assessment", "label": "Landscape character assessment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Development control enforcement", "label": "Development control enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside conservation", "label": "Countryside conservation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street names and numbering", "label": "Street names and numbering", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Licence for bridges, buildings, beams and cables over or along highway", "label": "Licence for bridges, buildings, beams and cables over or along highway", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lottery licence", "label": "Lottery licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water quality monitoring", "label": "Water quality monitoring", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolition enforcement", "label": "Demolition enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Demolitions - property assessment", "label": "Demolitions - property assessment", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dropped kerbs", "label": "Dropped kerbs", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "High hedges", "label": "High hedges", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Listed building consent", "label": "Listed building consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Property register", "label": "Property register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside education", "label": "Countryside education", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Highway planting licence", "label": "Highway planting licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Waste reduction", "label": "Waste reduction", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Forest and woodland management", "label": "Forest and woodland management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Field study centres", "label": "Field study centres", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental information regulations", "label": "Environmental information regulations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scaffolding and hoarding licence", "label": "Scaffolding and hoarding licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Selective housing areas", "label": "Selective housing areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "House to house collection licence", "label": "House to house collection licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Second hand dealer registration", "label": "Second hand dealer registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Exhaust emission testing", "label": "Exhaust emission testing", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food premises approval", "label": "Food premises approval", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Acupuncturist registration", "label": "Acupuncturist registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling sites", "label": "Recycling sites", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Child performance licences", "label": "Child performance licences", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Civil marriage and civil partnership venue licence", "label": "Civil marriage and civil partnership venue licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Early morning restrictions orders", "label": "Early morning restrictions orders", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Greyhound racing track licence", "label": "Greyhound racing track licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Personal alcohol and entertainment licence", "label": "Personal alcohol and entertainment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Premises licence", "label": "Premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sports stands safety certificate", "label": "Sports stands safety certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Temporary event notice", "label": "Temporary event notice", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Wedding venue licence", "label": "Wedding venue licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Children\u0027s certificate", "label": "Children\u0027s certificate", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sustainable development", "label": "Sustainable development", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Archaeological excavations and surveys", "label": "Archaeological excavations and surveys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Late night catering licence", "label": "Late night catering licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Flytipping", "label": "Flytipping", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Brownfield land register", "label": "Brownfield land register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Litter bins", "label": "Litter bins", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dangerous animals licence", "label": "Dangerous animals licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Pet shop licence", "label": "Pet shop licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Riding establishment licence", "label": "Riding establishment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Zoo licence", "label": "Zoo licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market cleaning", "label": "Market cleaning", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Track betting licence", "label": "Track betting licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Air handling units", "label": "Air handling units", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Asbestos management", "label": "Asbestos management", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Contaminated land", "label": "Contaminated land", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Idling vehicles", "label": "Idling vehicles", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Private water supply analysis", "label": "Private water supply analysis", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Smoke control areas", "label": "Smoke control areas", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Water pollution", "label": "Water pollution", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Geotechnology", "label": "Geotechnology", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Auction premises licence", "label": "Auction premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental policy", "label": "Environmental policy", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Sustainable drainage systems", "label": "Sustainable drainage systems", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Civil funerals", "label": "Civil funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Mortuaries", "label": "Mortuaries", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Municipal funerals", "label": "Municipal funerals", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Repatriation of bodies abroad", "label": "Repatriation of bodies abroad", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Repatriation of bodies to England and Wales", "label": "Repatriation of bodies to England and Wales", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Swimming pool and spa pool monitoring", "label": "Swimming pool and spa pool monitoring", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip hire", "label": "Skip hire", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street trading licence", "label": "Street trading licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Composters", "label": "Composters", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Petrol vapour recovery regulation", "label": "Petrol vapour recovery regulation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Refuse duty of care enforcement", "label": "Refuse duty of care enforcement", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Environmental Impact Assessment screening", "label": "Environmental Impact Assessment screening", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside facilities", "label": "Countryside facilities", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dry cleaning permit", "label": "Dry cleaning permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Businesses and markets", "label": "Businesses and markets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market event licence", "label": "Market event licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Market stall rental", "label": "Market stall rental", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Massage and special treatment licence", "label": "Massage and special treatment licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Gambling premises licence", "label": "Gambling premises licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Neighbourhood development order", "label": "Neighbourhood development order", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Illegal street trading", "label": "Illegal street trading", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Dead animal removal", "label": "Dead animal removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Registering business premises", "label": "Registering business premises", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste spillage", "label": "Commercial waste spillage", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Advertisement control", "label": "Advertisement control", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Discharge of planning conditions", "label": "Discharge of planning conditions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Full planning applications", "label": "Full planning applications", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Lawful Development Certificate existing use", "label": "Lawful Development Certificate existing use", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Local development order", "label": "Local development order", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Outline planning consent", "label": "Outline planning consent", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning area search", "label": "Planning area search", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning consultation", "label": "Planning consultation", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning decision notices", "label": "Planning decision notices", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Planning obligations", "label": "Planning obligations", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Prior notification of development", "label": "Prior notification of development", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Removal/variation of planning conditions", "label": "Removal/variation of planning conditions", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential planning applications", "label": "Residential planning applications", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Self-build and custom build register", "label": "Self-build and custom build register", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Residential recycling collections", "label": "Residential recycling collections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside rangers", "label": "Countryside rangers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Graffiti removal", "label": "Graffiti removal", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "RADAR keys for public toilets", "label": "RADAR keys for public toilets", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food safety inspections", "label": "Food safety inspections", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Commercial waste collection", "label": "Commercial waste collection", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Abandoned shopping trolleys", "label": "Abandoned shopping trolleys", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Club gaming permit", "label": "Club gaming permit", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Caravan site licence", "label": "Caravan site licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Community farms", "label": "Community farms", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside visitor centres", "label": "Countryside visitor centres", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Countryside volunteers", "label": "Countryside volunteers", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Road spillages", "label": "Road spillages", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Recycling of batteries", "label": "Recycling of batteries", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Street caf\u017d licence", "label": "Street caf\u017d licence", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Massage and special treatments therapist registration", "label": "Massage and special treatments therapist registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Food business registration", "label": "Food business registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Scrap metal site registration", "label": "Scrap metal site registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Motor salvage operator registration", "label": "Motor salvage operator registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Cooling tower registration", "label": "Cooling tower registration", "shape": "dot", "size": 10}, {"color": "#97c2fc", "font": {"color": "white"}, "id": "Skip operator licence", "label": "Skip operator licence", "shape": "dot", "size": 10}]);
+                  edges = new vis.DataSet([{"from": "Environmental health emergencies out of hours", "to": "Environmental health", "width": 1}, {"from": "Private hire drivers licence", "to": "Taxi and private hire", "width": 1}, {"from": "Tree management", "to": "Planning services", "width": 1}, {"from": "Ecology and geology", "to": "Conservation and sustainability", "width": 1}, {"from": "Grave purchasing", "to": "Funerals and cremations", "width": 1}, {"from": "Pollution control - Part A(2) and Part B processes", "to": "Building and construction", "width": 1}, {"from": "Light pollution", "to": "Pollution control", "width": 1}, {"from": "Family entertainment centre gaming machine permits", "to": "Gambling and lottery", "width": 1}, {"from": "Litter enforcement", "to": "Street care and cleaning", "width": 1}, {"from": "Countryside surveys", "to": "Countryside and farming", "width": 1}, {"from": "Household waste collection", "to": "Household waste", "width": 1}, {"from": "Local markets", "to": "Markets", "width": 1}, {"from": "Gambling premises temporary use notices", "to": "Gambling and lottery", "width": 1}, {"from": "Air quality", "to": "Pollution control", "width": 1}, {"from": "Commercial  clinical waste disposal", "to": "Commercial waste", "width": 1}, {"from": "Flyposting", "to": "Street care and cleaning", "width": 1}, {"from": "Archaeological consultancy", "to": "Conservation and sustainability", "width": 1}, {"from": "Recycling advice and initiatives", "to": "Recycling", "width": 1}, {"from": "Stage hypnotism licence", "to": "Alcohol and entertainment", "width": 1}, {"from": "Septic tanks and cesspits", "to": "Pollution control", "width": 1}, {"from": "Street collection licence", "to": "Businesses", "width": 1}, {"from": "Grass cutting", "to": "Parks and open spaces", "width": 1}, {"from": "Sports grounds safety certificate", "to": "Alcohol and entertainment", "width": 1}, {"from": "Grazing land", "to": "Countryside and farming", "width": 1}, {"from": "Food poisoning and contamination", "to": "Environmental health", "width": 1}, {"from": "Countryside management", "to": "Countryside and farming", "width": 1}, {"from": "Food safety enforcement", "to": "Environmental health", "width": 1}, {"from": "Building materials licence", "to": "Building and construction", "width": 1}, {"from": "Club premises certificate", "to": "Alcohol and entertainment", "width": 1}, {"from": "Conservation area planning", "to": "Planning services", "width": 1}, {"from": "Sheep and goat movement licence", "to": "Animals", "width": 1}, {"from": "Planning and building control", "to": "Building control", "width": 1}, {"from": "Planning and building control", "to": "Development control", "width": 1}, {"from": "Planning and building control", "to": "Planning policy", "width": 1}, {"from": "Planning and building control", "to": "Planning services", "width": 1}, {"from": "Commercial waste bins", "to": "Commercial waste", "width": 1}, {"from": "Prize gaming permit", "to": "Gambling and lottery", "width": 1}, {"from": "Property enquiries certificates", "to": "Planning services", "width": 1}, {"from": "Household garden waste", "to": "Household waste", "width": 1}, {"from": "Planning pre-application advice", "to": "Development control", "width": 1}, {"from": "Clean Air Act approval", "to": "Pollution control", "width": 1}, {"from": "Public toilets", "to": "Street care and cleaning", "width": 1}, {"from": "Planning minor material amendments", "to": "Development control", "width": 1}, {"from": "Land use proposals", "to": "Planning policy", "width": 1}, {"from": "Hazardous waste collection", "to": "Hazardous waste", "width": 1}, {"from": "Household waste assisted collection", "to": "Household waste", "width": 1}, {"from": "Dog  waste bins", "to": "Street care and cleaning", "width": 1}, {"from": "Scientific services", "to": "Environmental health", "width": 1}, {"from": "Household waste containers", "to": "Household waste", "width": 1}, {"from": "Nature reserves", "to": "Countryside and farming", "width": 1}, {"from": "Selective area housing licences", "to": "Building and construction", "width": 1}, {"from": "Licensed premises gaming machine permit", "to": "Gambling and lottery", "width": 1}, {"from": "Dog breeding licence", "to": "Animals", "width": 1}, {"from": "Skip permits", "to": "Permissions and consents", "width": 1}, {"from": "Permissions and consents", "to": "Licences, permits and permissions", "width": 1}, {"from": "Permissions and consents", "to": "Consent for cellars, pavement lights and ventilators under street", "width": 1}, {"from": "Permissions and consents", "to": "Leaflet distribution consent", "width": 1}, {"from": "Permissions and consents", "to": "Permission to film and photograph", "width": 1}, {"from": "Permissions and consents", "to": "Permission to host events", "width": 1}, {"from": "Permissions and consents", "to": "Street parties permission", "width": 1}, {"from": "Permissions and consents", "to": "Verges permitted use", "width": 1}, {"from": "Permissions and consents", "to": "Pig movement notification", "width": 1}, {"from": "Common land and village greens", "to": "Parks and open spaces", "width": 1}, {"from": "Land charges search", "to": "Development control", "width": 1}, {"from": "Smoking ban", "to": "Environmental health", "width": 1}, {"from": "Track gambling premises occasional use notices", "to": "Gambling and lottery", "width": 1}, {"from": "Parks and open spaces", "to": "Environmental protection", "width": 1}, {"from": "Parks and open spaces", "to": "Gypsy and traveller sites", "width": 1}, {"from": "Parks and open spaces", "to": "Outdoor play facilities", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open space maintenance and landscaping", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open spaces", "width": 1}, {"from": "Parks and open spaces", "to": "Parks and open space landscaping", "width": 1}, {"from": "Commercial waste disposal sites", "to": "Commercial waste", "width": 1}, {"from": "Register of land", "to": "Planning services", "width": 1}, {"from": "Commercial waste special collections", "to": "Commercial waste", "width": 1}, {"from": "Solvent emissions regulation", "to": "Businesses", "width": 1}, {"from": "Pest control", "to": "Environmental health", "width": 1}, {"from": "Lawful Development Certificate proposed use", "to": "Development control", "width": 1}, {"from": "Tree preservation orders", "to": "Planning services", "width": 1}, {"from": "Street works licence", "to": "Roads and streets", "width": 1}, {"from": "Moveable dwelling site licence", "to": "Businesses", "width": 1}, {"from": "Boarding animals licence", "to": "Animals", "width": 1}, {"from": "Exhumations", "to": "Funerals and cremations", "width": 1}, {"from": "Hackney carriage (taxi) drivers licence", "to": "Taxi and private hire", "width": 1}, {"from": "Hazardous substance control", "to": "Pollution control", "width": 1}, {"from": "Taxi and private hire", "to": "Transport", "width": 1}, {"from": "Taxi and private hire", "to": "Dual drivers licence", "width": 1}, {"from": "Taxi and private hire", "to": "Hackney carriage (taxi) licence", "width": 1}, {"from": "Taxi and private hire", "to": "Private hire operators licence", "width": 1}, {"from": "Taxi and private hire", "to": "Private hire vehicle (minicab) licence", "width": 1}, {"from": "Taxi and private hire", "to": "Taxi fare setting", "width": 1}, {"from": "Taxi and private hire", "to": "Voluntary sector transport licence", "width": 1}, {"from": "Sex establishment licence", "to": "Businesses", "width": 1}, {"from": "Club machine permit", "to": "Gambling and lottery", "width": 1}, {"from": "Petroleum storage licence", "to": "Hazardous materials", "width": 1}, {"from": "Statutory development plans", "to": "Planning policy", "width": 1}, {"from": "Planning reserved matters", "to": "Development control", "width": 1}, {"from": "Noise pollution", "to": "Pollution control", "width": 1}, {"from": "Abandoned vehicles", "to": "Street care and cleaning", "width": 1}, {"from": "Animal by-products enforcement", "to": "Environmental health", "width": 1}, {"from": "Water activities", "to": "Licences, permits and permissions", "width": 1}, {"from": "Water activities", "to": "Boatman\u0027s licence", "width": 1}, {"from": "Water activities", "to": "Pleasure boat licence", "width": 1}, {"from": "Water activities", "to": "Self drive boats licence", "width": 1}, {"from": "Recycling bags and containers", "to": "Recycling", "width": 1}, {"from": "Clinical household waste", "to": "Household waste", "width": 1}, {"from": "Derelict properties", "to": "Planning services", "width": 1}, {"from": "Allotments", "to": "Planning services", "width": 1}, {"from": "Dog fouling", "to": "Street care and cleaning", "width": 1}, {"from": "Open access land", "to": "Countryside and farming", "width": 1}, {"from": "Dangerous dogs enforcement", "to": "Animal welfare", "width": 1}, {"from": "Animal welfare", "to": "Environmental protection", "width": 1}, {"from": "Animal welfare", "to": "Animal welfare", "width": 1}, {"from": "Animal welfare", "to": "Dog registration", "width": 1}, {"from": "Animal welfare", "to": "Dog wardens", "width": 1}, {"from": "Animal welfare", "to": "Pet burial", "width": 1}, {"from": "Animal welfare", "to": "Stray animals", "width": 1}, {"from": "Farmers markets", "to": "Markets", "width": 1}, {"from": "Petroleum storage licence/certificate", "to": "Hazardous materials", "width": 1}, {"from": "Homes in multiple occupancy licence", "to": "Building and construction", "width": 1}, {"from": "Independent funerals", "to": "Funerals and cremations", "width": 1}, {"from": "Planning non-material amendments", "to": "Development control", "width": 1}, {"from": "Household waste accumulation", "to": "Household waste", "width": 1}, {"from": "Farming advice", "to": "Countryside and farming", "width": 1}, {"from": "Local access forums", "to": "Conservation and sustainability", "width": 1}, {"from": "Area waste strategy", "to": "Waste policy", "width": 1}, {"from": "Conservation area tree works notification", "to": "Development control", "width": 1}, {"from": "Food safety advice", "to": "Food", "width": 1}, {"from": "Construction site pollution", "to": "Pollution control", "width": 1}, {"from": "Litter removal", "to": "Street care and cleaning", "width": 1}, {"from": "Environmental protection", "to": "Conservation and sustainability", "width": 1}, {"from": "Environmental protection", "to": "Countryside and farming", "width": 1}, {"from": "Environmental protection", "to": "Environmental health", "width": 1}, {"from": "Environmental protection", "to": "Funerals and cremations", "width": 1}, {"from": "Environmental protection", "to": "Pollution control", "width": 1}, {"from": "Environmental protection", "to": "Recycling", "width": 1}, {"from": "Environmental protection", "to": "Street care and cleaning", "width": 1}, {"from": "Environmental protection", "to": "Waste management", "width": 1}, {"from": "Surface water management plans", "to": "Conservation and sustainability", "width": 1}, {"from": "Syringe disposal", "to": "Hazardous waste", "width": 1}, {"from": "Cemeteries and crematoria", "to": "Funerals and cremations", "width": 1}, {"from": "Land and property availability", "to": "Planning services", "width": 1}, {"from": "Hazardous materials", "to": "Licences, permits and permissions", "width": 1}, {"from": "Hazardous materials", "to": "Firework safety advice", "width": 1}, {"from": "Hazardous materials", "to": "Poisons licence", "width": 1}, {"from": "Street cleaning", "to": "Street care and cleaning", "width": 1}, {"from": "Sunday trading notification", "to": "Businesses", "width": 1}, {"from": "Roads and streets", "to": "Transport", "width": 1}, {"from": "Roads and streets", "to": "Abnormal load notification", "width": 1}, {"from": "Roads and streets", "to": "Highway projection licence", "width": 1}, {"from": "Roads and streets", "to": "Weighbridge operator licence", "width": 1}, {"from": "Roads and streets", "to": "Workplace parking levy", "width": 1}, {"from": "Bulky household waste collections", "to": "Household waste", "width": 1}, {"from": "Dangerous structures", "to": "Planning services", "width": 1}, {"from": "Memorial construction", "to": "Funerals and cremations", "width": 1}, {"from": "Transport", "to": "Licences, permits and permissions", "width": 1}, {"from": "Building control", "to": "Building control", "width": 1}, {"from": "Building control", "to": "Building control enforcement", "width": 1}, {"from": "Building control", "to": "Domestic heating oil tanks", "width": 1}, {"from": "Demolition control", "to": "Planning services", "width": 1}, {"from": "Household waste", "to": "Waste management", "width": 1}, {"from": "Household waste", "to": "Household waste disposal sites", "width": 1}, {"from": "Household waste", "to": "Household waste enforcement", "width": 1}, {"from": "Household waste", "to": "Residential waste spillages", "width": 1}, {"from": "Statutory nuisances", "to": "Pollution control", "width": 1}, {"from": "Smallholdings", "to": "Countryside and farming", "width": 1}, {"from": "Tattooist, piercing and electrolysis registration", "to": "Businesses", "width": 1}, {"from": "Planning policy", "to": "Building and landscape design", "width": 1}, {"from": "Planning policy", "to": "Conservation areas", "width": 1}, {"from": "Planning policy", "to": "Local Development Framework", "width": 1}, {"from": "Planning policy", "to": "Local plans", "width": 1}, {"from": "Planning policy", "to": "Minerals local plan", "width": 1}, {"from": "Planning policy", "to": "Neighbourhood planning", "width": 1}, {"from": "Planning policy", "to": "Spatial development strategy", "width": 1}, {"from": "Planning policy", "to": "Transport policy", "width": 1}, {"from": "Planning policy", "to": "Zoning", "width": 1}, {"from": "Community infrastructure levy (CIL)", "to": "Development control", "width": 1}, {"from": "Performing animals licence", "to": "Animals", "width": 1}, {"from": "Food waste recycling", "to": "Recycling", "width": 1}, {"from": "Landscape character assessment", "to": "Conservation and sustainability", "width": 1}, {"from": "Hazardous waste", "to": "Waste management", "width": 1}, {"from": "Development control enforcement", "to": "Development control", "width": 1}, {"from": "Countryside conservation", "to": "Conservation and sustainability", "width": 1}, {"from": "Street names and numbering", "to": "Planning services", "width": 1}, {"from": "Licence for bridges, buildings, beams and cables over or along highway", "to": "Building and construction", "width": 1}, {"from": "Lottery licence", "to": "Gambling and lottery", "width": 1}, {"from": "Water quality monitoring", "to": "Pollution control", "width": 1}, {"from": "Planning services", "to": "Demolition enforcement", "width": 1}, {"from": "Planning services", "to": "Demolitions - property assessment", "width": 1}, {"from": "Planning services", "to": "Dropped kerbs", "width": 1}, {"from": "Planning services", "to": "High hedges", "width": 1}, {"from": "Planning services", "to": "Listed building consent", "width": 1}, {"from": "Planning services", "to": "Property register", "width": 1}, {"from": "Countryside education", "to": "Countryside and farming", "width": 1}, {"from": "Highway planting licence", "to": "Building and construction", "width": 1}, {"from": "Waste reduction", "to": "Conservation and sustainability", "width": 1}, {"from": "Forest and woodland management", "to": "Countryside and farming", "width": 1}, {"from": "Field study centres", "to": "Countryside and farming", "width": 1}, {"from": "Environmental information regulations", "to": "Pollution control", "width": 1}, {"from": "Building and construction", "to": "Licences, permits and permissions", "width": 1}, {"from": "Building and construction", "to": "Scaffolding and hoarding licence", "width": 1}, {"from": "Building and construction", "to": "Selective housing areas", "width": 1}, {"from": "House to house collection licence", "to": "Businesses", "width": 1}, {"from": "Second hand dealer registration", "to": "Businesses", "width": 1}, {"from": "Exhaust emission testing", "to": "Pollution control", "width": 1}, {"from": "Food premises approval", "to": "Food", "width": 1}, {"from": "Acupuncturist registration", "to": "Businesses", "width": 1}, {"from": "Recycling sites", "to": "Recycling", "width": 1}, {"from": "Alcohol and entertainment", "to": "Licences, permits and permissions", "width": 1}, {"from": "Alcohol and entertainment", "to": "Child performance licences", "width": 1}, {"from": "Alcohol and entertainment", "to": "Civil marriage and civil partnership venue licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Early morning restrictions orders", "width": 1}, {"from": "Alcohol and entertainment", "to": "Greyhound racing track licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Personal alcohol and entertainment licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Premises licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Sports stands safety certificate", "width": 1}, {"from": "Alcohol and entertainment", "to": "Temporary event notice", "width": 1}, {"from": "Alcohol and entertainment", "to": "Wedding venue licence", "width": 1}, {"from": "Alcohol and entertainment", "to": "Children\u0027s certificate", "width": 1}, {"from": "Sustainable development", "to": "Conservation and sustainability", "width": 1}, {"from": "Archaeological excavations and surveys", "to": "Conservation and sustainability", "width": 1}, {"from": "Late night catering licence", "to": "Food", "width": 1}, {"from": "Flytipping", "to": "Street care and cleaning", "width": 1}, {"from": "Brownfield land register", "to": "Development control", "width": 1}, {"from": "Litter bins", "to": "Street care and cleaning", "width": 1}, {"from": "Animals", "to": "Licences, permits and permissions", "width": 1}, {"from": "Animals", "to": "Dangerous animals licence", "width": 1}, {"from": "Animals", "to": "Pet shop licence", "width": 1}, {"from": "Animals", "to": "Riding establishment licence", "width": 1}, {"from": "Animals", "to": "Zoo licence", "width": 1}, {"from": "Market cleaning", "to": "Street care and cleaning", "width": 1}, {"from": "Track betting licence", "to": "Gambling and lottery", "width": 1}, {"from": "Pollution control", "to": "Air handling units", "width": 1}, {"from": "Pollution control", "to": "Asbestos management", "width": 1}, {"from": "Pollution control", "to": "Contaminated land", "width": 1}, {"from": "Pollution control", "to": "Idling vehicles", "width": 1}, {"from": "Pollution control", "to": "Private water supply analysis", "width": 1}, {"from": "Pollution control", "to": "Smoke control areas", "width": 1}, {"from": "Pollution control", "to": "Water pollution", "width": 1}, {"from": "Pollution control", "to": "Geotechnology", "width": 1}, {"from": "Auction premises licence", "to": "Businesses", "width": 1}, {"from": "Conservation and sustainability", "to": "Environmental policy", "width": 1}, {"from": "Conservation and sustainability", "to": "Sustainable drainage systems", "width": 1}, {"from": "Funerals and cremations", "to": "Civil funerals", "width": 1}, {"from": "Funerals and cremations", "to": "Mortuaries", "width": 1}, {"from": "Funerals and cremations", "to": "Municipal funerals", "width": 1}, {"from": "Funerals and cremations", "to": "Repatriation of bodies abroad", "width": 1}, {"from": "Funerals and cremations", "to": "Repatriation of bodies to England and Wales", "width": 1}, {"from": "Swimming pool and spa pool monitoring", "to": "Environmental health", "width": 1}, {"from": "Skip hire", "to": "Commercial waste", "width": 1}, {"from": "Street trading licence", "to": "Businesses", "width": 1}, {"from": "Composters", "to": "Recycling", "width": 1}, {"from": "Petrol vapour recovery regulation", "to": "Businesses", "width": 1}, {"from": "Refuse duty of care enforcement", "to": "Waste policy", "width": 1}, {"from": "Environmental Impact Assessment screening", "to": "Development control", "width": 1}, {"from": "Countryside facilities", "to": "Countryside and farming", "width": 1}, {"from": "Dry cleaning permit", "to": "Businesses", "width": 1}, {"from": "Markets", "to": "Businesses and markets", "width": 1}, {"from": "Markets", "to": "Market event licence", "width": 1}, {"from": "Markets", "to": "Market stall rental", "width": 1}, {"from": "Massage and special treatment licence", "to": "Businesses", "width": 1}, {"from": "Gambling premises licence", "to": "Gambling and lottery", "width": 1}, {"from": "Neighbourhood development order", "to": "Development control", "width": 1}, {"from": "Illegal street trading", "to": "Businesses", "width": 1}, {"from": "Dead animal removal", "to": "Street care and cleaning", "width": 1}, {"from": "Registering business premises", "to": "Businesses", "width": 1}, {"from": "Commercial waste spillage", "to": "Commercial waste", "width": 1}, {"from": "Development control", "to": "Advertisement control", "width": 1}, {"from": "Development control", "to": "Development control", "width": 1}, {"from": "Development control", "to": "Discharge of planning conditions", "width": 1}, {"from": "Development control", "to": "Full planning applications", "width": 1}, {"from": "Development control", "to": "Lawful Development Certificate existing use", "width": 1}, {"from": "Development control", "to": "Local development order", "width": 1}, {"from": "Development control", "to": "Outline planning consent", "width": 1}, {"from": "Development control", "to": "Planning area search", "width": 1}, {"from": "Development control", "to": "Planning consultation", "width": 1}, {"from": "Development control", "to": "Planning decision notices", "width": 1}, {"from": "Development control", "to": "Planning obligations", "width": 1}, {"from": "Development control", "to": "Prior notification of development", "width": 1}, {"from": "Development control", "to": "Removal/variation of planning conditions", "width": 1}, {"from": "Development control", "to": "Residential planning applications", "width": 1}, {"from": "Development control", "to": "Self-build and custom build register", "width": 1}, {"from": "Licences, permits and permissions", "to": "Food", "width": 1}, {"from": "Licences, permits and permissions", "to": "Gambling and lottery", "width": 1}, {"from": "Licences, permits and permissions", "to": "Businesses and markets", "width": 1}, {"from": "Residential recycling collections", "to": "Recycling", "width": 1}, {"from": "Countryside rangers", "to": "Countryside and farming", "width": 1}, {"from": "Graffiti removal", "to": "Street care and cleaning", "width": 1}, {"from": "RADAR keys for public toilets", "to": "Street care and cleaning", "width": 1}, {"from": "Food safety inspections", "to": "Environmental health", "width": 1}, {"from": "Commercial waste", "to": "Waste management", "width": 1}, {"from": "Commercial waste", "to": "Commercial waste collection", "width": 1}, {"from": "Abandoned shopping trolleys", "to": "Street care and cleaning", "width": 1}, {"from": "Club gaming permit", "to": "Gambling and lottery", "width": 1}, {"from": "Caravan site licence", "to": "Businesses", "width": 1}, {"from": "Countryside and farming", "to": "Community farms", "width": 1}, {"from": "Countryside and farming", "to": "Countryside visitor centres", "width": 1}, {"from": "Countryside and farming", "to": "Countryside volunteers", "width": 1}, {"from": "Road spillages", "to": "Street care and cleaning", "width": 1}, {"from": "Recycling of batteries", "to": "Recycling", "width": 1}, {"from": "Street caf\u017d licence", "to": "Food", "width": 1}, {"from": "Waste policy", "to": "Waste management", "width": 1}, {"from": "Businesses", "to": "Businesses and markets", "width": 1}, {"from": "Businesses", "to": "Massage and special treatments therapist registration", "width": 1}, {"from": "Food business registration", "to": "Food", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+                    network.on("selectNode", neighbourhoodHighlight);
+                  
+
+                  
+
+
+                  
+                      network.on("stabilizationProgress", function(params) {
+                          document.getElementById('loadingBar').removeAttribute("style");
+                          var maxWidth = 496;
+                          var minWidth = 20;
+                          var widthFactor = params.iterations/params.total;
+                          var width = Math.max(minWidth,maxWidth * widthFactor);
+                          document.getElementById('bar').style.width = width + 'px';
+                          document.getElementById('text').innerHTML = Math.round(widthFactor*100) + '%';
+                      });
+                      network.once("stabilizationIterationsDone", function() {
+                          document.getElementById('text').innerHTML = '100%';
+                          document.getElementById('bar').style.width = '496px';
+                          document.getElementById('loadingBar').style.opacity = 0;
+                          // really clean the dom element
+                          setTimeout(function () {document.getElementById('loadingBar').style.display = 'none';}, 500);
+                      });
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>
